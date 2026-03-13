@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run journal_setup.py",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/journal_setup.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

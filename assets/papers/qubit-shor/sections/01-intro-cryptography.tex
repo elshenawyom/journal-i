@@ -1,0 +1,33 @@
+\section{Introduction to Cryptography.}
+Cryptography is the study of mathematical techniques for securing communication and data in the presence of adversaries. Its primary goal is to ensure the confidentiality, integrity, authenticity, and non-repudiation of information. We are mainly dealing with two subjects in it: Encryption \& Decryption.
+
+\begin{definitionbox}
+In cryptography, \textbf{encryption} (more specifically, \textbf{encoding}) is the process of transforming information in a way that, ideally, only authorized parties can decode.
+\end{definitionbox}
+
+\subsection{RSA.}
+
+The RSA cryptosystem was introduced in 1977 by \textbf{Rivest},\textbf{ Shamir}, and \textbf{Adleman}, from whom it takes its name.I t is a public-key encryption scheme designed to securely encode messages over insecure communication channels by relying on the computational difficulty of factoring large composite integers. Let’s discuss how it works and what is the algorithm behind it.
+\subsection{Algorithm of RSA.}
+Take Alice and Bob. Alice and Bob both have two big prime numbers (in general around 313 digits). Let’s name the prime numbers of Alice P1 and P2, and Bob’s P3 and P4.\nl
+Both Alice and Bob are going to multiply their two big prime numbers to get a new big semiprime number. Let’s call them respectively SP1 and SP2.\nl
+P1 and P2 are then called the private keys of Alice, SR1 is her public key. And similarly for Bob.\nl
+If Alice wants to send something to Bob, she is going to hash her message in a way such that she uses his public key SP2, and the only way to decrypt her message, must be that her receptor knows the two big prime numbers P3 and P4, that created the public key SP2. In our case, Bob knows them, but no one else knows does. Both the public keys of Alice and Bob can be viewed by anyone, as long as her hashed message. However, due to the fact that only Bob knows what P3 and P4 are, he is the only one able to decode the hashed message.
+
+
+\begin{notebox}
+That we are not covering how the message is hashed, and we won’t. This part is not relevant for the rest of the article and thus is out of scope.
+\end{notebox}
+
+\begin{notebox}
+    We call this an asymmetric key system because two different keys are used to send and to receive the message.
+\end{notebox}
+
+\subsection{How to make RSA irrelevant?}
+The whole RSA is standing on one assumption: Finding the prime factors of a semiprime number is a NP problem. Meaning that if you have a big semiprime Number N, I can check if two prime numbers are its two prime factors (divisors). However, finding the two prime factors takes way more time, it is possible, but for example for a 313 digits semiprime number, it may take 24000 years to find them, even for a supercomputer. Thus, to be able to make RSA breakable, it is enough to show that the problem of finding the prime factors of a semiprime number is actually a P problem, so if we find a way to find efficiently factor a semiprime number, we broke the RSA system.\nl
+And this is where Shor’s algorithm comes.
+
+
+\subsection{Introduction to Shor's Algorithm.}
+Shor’s algorithm, developed by \textbf{Peter Shor in 1994}, is a quantum algorithm for efficiently factoring large integers. It runs in polynomial time on a quantum computer and poses a fundamental threat to classical cryptographic systems such as RSA, whose security relies on the hardness of integer factorization.\nl
+But before explaining how it works, you may have noticed that there is a quite scary word in its definition, “quantum”. Thus, before explaining the algorithm and how it isg implemented, for the sake of the reader’s comfort, I will have to give you a minimum knowledge about the world of Quantum Computing.

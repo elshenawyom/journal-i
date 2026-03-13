@@ -1,0 +1,56 @@
+% ============================================================
+%  main.tex — Constructor Mathematical Journal
+%  Volume 1 · Spring 2025
+%  Constructor University Mathematics Society
+% ============================================================
+\documentclass[11pt, twoside, a4paper]{article}
+\usepackage{cumsj}
+
+\begin{document}
+
+% ── Front Matter ────────────────────────────────────────────
+\pagenumbering{roman}
+\input{front/cover}
+\input{front/editorial}
+\input{front/info}
+
+%   Table of Contents ──────────────────────────────────────
+\clearpage
+\thispagestyle{frontmatter}
+\vspace*{1.5cm}
+\begin{center}
+  {\LARGE\bfseries\color{cujblue}Contents}
+\end{center}
+\vspace{0.3cm}
+\noindent\textcolor{cujgold}{\rule{\textwidth}{1.2pt}}
+\vspace{0.8cm}
+
+\contentsentry
+  {Shannon's Theorem and Polar Codes}
+  {Aly Assaf}
+  {art:shannon}
+
+\contentsentry
+  {The Qubit and Shor's Algorithm}
+  {Ahmed Maghri}
+  {art:shor}
+
+\contentsentry
+  {Bragg's Law and X-Ray Crystallography}
+  {XXX --- Author Name}
+  {art:three}
+
+\vfill
+\noindent\textcolor{cujgold}{\rule{\textwidth}{1.2pt}}
+
+% ── Articles ────────────────────────────────────────────────
+\clearpage
+\pagenumbering{arabic}
+
+\input{articles/01-shannon}
+
+\input{articles/02-shor}
+
+\input{articles/03-placeholder}
+
+\end{document}

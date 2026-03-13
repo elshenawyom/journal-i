@@ -1,0 +1,169 @@
+\documentclass[11pt]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{tikz}
+
+\title[Polar Codes]{Shannon’s Theorem and Polar Codes}
+\subtitle{From Theoretical Limits to Practical Encoding}
+\author{Aly Assaf}
+\institute{April 2025}
+\date{}
+
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{navigation symbols}{}
+
+% Banner
+\logo{\includegraphics[height=0.9cm]{example-image-a}} % Replace with your logo
+
+%---------------------------------------------------
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+
+%---------------------------------------------------
+\section{Introduction}
+\begin{frame}{Coding Theory History}
+\begin{itemize}
+    \item Shannon proved reliable communication is possible at rates below a channel’s capacity.
+    \item But his proof was non-constructive—no method was given.
+    \item Polar Codes (Arıkan, 2008) are the first provably capacity-achieving codes for symmetric binary-input memoryless channels.
+    \item This talk introduces Coding Theory, Shannon’s Theorem, and the construction of Polar Codes.
+\end{itemize}
+\end{frame}
+
+
+%---------------------------------------------------
+\subsection{Example}
+\begin{frame}{Coding Theory History}
+\begin{itemize}
+    \item Engineer's belief
+\end{itemize}
+\end{frame}
+%---------------------------------------------------
+\section{Foundations of Coding Theory}
+\begin{frame}{The Coding Problem}
+\begin{block}{Goal}
+Design codes that:
+\begin{itemize}
+    \item Maximize transfer rate $R = \frac{k}{n}$
+    \item Minimize error probability
+\end{itemize}
+\end{block}
+\pause
+\textbf{Key challenge:} Trade-off between efficiency ($R$) and reliability (distance $d$).
+\end{frame}
+
+\begin{frame}{Core Definitions}
+\begin{itemize}
+    \item \textbf{Code:} maps message $u \in \{0,1\}^k$ to codeword $x \in \{0,1\}^n$
+    \item \textbf{Linear code:} if $Hx^T = 0$, then $x + y$ is also a codeword
+    \item \textbf{Hamming weight:} number of 1s in a vector
+    \item \textbf{Hamming distance:} $\text{dist}(x,y) = \text{wt}(x - y)$
+    \item \textbf{Minimum distance:} smallest pairwise Hamming distance
+\end{itemize}
+\end{frame}
+
+%---------------------------------------------------
+\section{Shannon’s Theorem}
+\begin{frame}{Information and Entropy}
+\begin{itemize}
+    \item \textbf{Information:} $h(x) = \log_2 \frac{1}{p(x)}$
+    \item \textbf{Entropy:} average information content
+    \[
+    H(X) = \sum_{x} P(x) \log_2 \frac{1}{P(x)}
+    \]
+    \item \textbf{Mutual Information:} $I(X;Y) = H(X) - H(X|Y)$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Shannon's Theorem}
+\begin{block}{Theorem (1948)}
+Reliable communication over a discrete memoryless channel is possible \\
+if the rate $R < C$, where $C$ is the channel capacity.
+\end{block}
+\pause
+\begin{itemize}
+    \item For BSC(p), $C = 1 - h(p)$
+    \item Converse: if $R > C$, error probability $\rightarrow 1$
+    \item Shannon’s proof was existential—not constructive
+\end{itemize}
+\end{frame}
+
+%---------------------------------------------------
+\section{Polar Codes}
+\begin{frame}{Why Polar Codes?}
+\begin{itemize}
+    \item Turbo and LDPC codes approached capacity only empirically
+    \item Arıkan (2008) introduced the first provable, efficient method
+    \item Polar codes achieve channel capacity with $O(n \log n)$ complexity
+    \item Used in 5G; promising for 6G
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Key Idea: Polarization}
+\begin{itemize}
+    \item Start with two bits $U, V \sim \text{Bern}(p)$
+    \item Encode as $(U + V, V)$ — reversible!
+    \item Entropy shifts:
+    \[
+    H(U+V, V) = H(U,V) = 2h(p)
+    \]
+    \[
+    H(V | U + V) = 2h(p) - h(p') < h(p)
+    \]
+\end{itemize}
+\pause
+\textbf{Some bits become more reliable, some less — this is polarization.}
+\end{frame}
+
+\begin{frame}{Recursive Construction}
+\begin{itemize}
+    \item Apply transformation recursively for $n = 2^t$ bits
+    \item Output: bits polarized into
+    \begin{itemize}
+        \item Channels with entropy $\approx 0$ (good)
+        \item Channels with entropy $\approx 1$ (bad)
+    \end{itemize}
+    \item Send only on good channels
+\end{itemize}
+\pause
+\textbf{Preprocessing builds set $S$ of good indices.}
+\end{frame}
+
+%---------------------------------------------------
+\section{Decoding and Performance}
+\begin{frame}{Decoding Strategy}
+\begin{itemize}
+    \item Decoding is successive cancellation:
+    \item Recover last bits first, then backtrack
+    \item Efficient because structure is known: depth = $\log_2 n$
+\end{itemize}
+\pause
+\textbf{Polar codes are practical:} Used in 5G NR standard (control channels).
+\end{frame}
+
+%---------------------------------------------------
+\section{Conclusion}
+\begin{frame}{Final Remarks}
+\begin{itemize}
+    \item Shannon showed what’s possible
+    \item Arıkan showed how to achieve it
+    \item Polar codes combine theory with efficient implementation
+    \item They set a new standard for error-correcting codes
+\end{itemize}
+\end{frame}
+
+%---------------------------------------------------
+\begin{frame}[allowframebreaks]{References}
+\begin{itemize}
+    \item C. Shannon, “A Mathematical Theory of Communication,” 1948.
+    \item E. Arıkan, “Channel Polarization: A Method for Constructing Capacity-Achieving Codes,” 2008.
+    \item Additional sources as included in the original paper.
+\end{itemize}
+\end{frame}
+
+\end{document}

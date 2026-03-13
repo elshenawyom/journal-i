@@ -1,0 +1,55 @@
+% ============================================================
+%  article.tex  —  TEMPLATE for a new journal article
+%
+%  To add a new article to the journal:
+%    1.  Copy the entire  template/article/  directory into
+%        the project root, renaming it (e.g. my-new-article/).
+%    2.  Edit this file: fill in the \articleheader fields and
+%        write your content (or \input section files).
+%    3.  In main.tex, add:  \input{my-new-article/article}
+%    4.  Add a \contentsentry in the Table‑of‑Contents block.
+% ============================================================
+
+\label{art:CHANGEME}
+
+\articleheader
+  {TITLE OF YOUR ARTICLE}
+  {YOUR NAME}
+  {Constructor University Bremen}
+  {ABSTRACT — A concise summary of the article's contributions,
+   methodology, and key results.}
+
+% ── Optional: Acknowledgements ────────────────────────────
+% \vspace{0.3cm}
+% \noindent{\small\textbf{\color{cujblue}Acknowledgements.}\ %
+% Thank collaborators, advisors, funding sources, etc.}
+% \vspace{0.6cm}
+
+% ── Article body ──────────────────────────────────────────
+
+\section{Introduction}
+
+Write your introduction here.
+
+% You can split content into separate files:
+% \input{my-new-article/sections/content}
+
+\section{Preliminaries}
+
+Definitions, notation, background material.
+
+\section{Main Results}
+
+Core content: theorems, proofs, examples, figures.
+
+\section{Conclusion}
+
+Summary and future work.
+
+% ── References ────────────────────────────────────────────
+\articlereferences
+
+\begin{enumerate}[label={[\arabic*]}, leftmargin=2em, itemsep=0.25em]
+  \item A.~Author, ``Title,'' \textit{Journal}, vol.~X, pp.~1--10, 2025.
+  \item B.~Author, \textit{Book Title}, Publisher, 2025.
+\end{enumerate}

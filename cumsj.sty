@@ -1,0 +1,282 @@
+% ============================================================
+% cumsj.sty — Constructor University Mathematics Society Journal
+% Style file for "Constructor Mathematical Journal"
+% Version 1.0 · Spring 2025
+% ============================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cumsj}[2025/03/01 CUMSJ Journal Style v1.0]
+
+% ── Typography & Fonts ──────────────────────────────────────
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[sc]{mathpazo}           % Palatino text + math (universally available)
+\RequirePackage{microtype}              % Microtypographic polish
+\RequirePackage{setspace}
+
+% ── Page Layout ─────────────────────────────────────────────
+\RequirePackage[
+  a4paper,
+  top=2.5cm,
+  bottom=2.5cm,
+  left=2.5cm,
+  right=2.5cm,
+  headheight=22pt
+]{geometry}
+
+% ── Headers & Footers ──────────────────────────────────────
+\RequirePackage{fancyhdr}
+
+% ── Mathematics ────────────────────────────────────────────
+\RequirePackage{amsmath, amssymb, amsthm}
+\RequirePackage{physics}
+
+% ── Graphics & Color ───────────────────────────────────────
+\RequirePackage{graphicx}
+\RequirePackage[table,xcdraw]{xcolor}
+\RequirePackage{tikz}
+\usetikzlibrary{calc, arrows.meta, decorations.markings, shadings, positioning, 3d}
+\RequirePackage[most]{tcolorbox}
+
+% ── Tables & Floats ───────────────────────────────────────
+\RequirePackage{booktabs}
+\RequirePackage{colortbl}
+\RequirePackage{float}
+\RequirePackage{caption}
+
+% ── Algorithms ─────────────────────────────────────────────
+\RequirePackage{algorithm}
+\RequirePackage{algpseudocode}
+
+% ── Utilities ──────────────────────────────────────────────
+\RequirePackage{gensymb}
+\RequirePackage{comment}
+\RequirePackage{footnote}
+\RequirePackage{titlesec}
+\RequirePackage{enumitem}
+\RequirePackage{abstract}
+\RequirePackage{etoolbox}
+
+% ── Hyperlinks (load last among standard packages) ─────────
+\RequirePackage{hyperref}
+
+% ============================================================
+%  COLOR PALETTE
+% ============================================================
+\definecolor{cujblue}{RGB}{155, 20, 30}        % deep crimson (primary)
+\definecolor{cujgold}{RGB}{186, 145, 40}        % gold (accent)
+\definecolor{cujlightblue}{RGB}{255, 240, 240}  % blush rose (light bg)
+\definecolor{cujdark}{RGB}{35, 35, 35}
+\definecolor{cujgray}{RGB}{128, 128, 128}
+\definecolor{cujlightgray}{RGB}{230, 230, 230}
+
+% tcolorbox accent colors
+\definecolor{defnred}{RGB}{160, 30, 30}
+\definecolor{thrmblue}{RGB}{100, 10, 20}        % deep burgundy
+\definecolor{notelavender}{RGB}{120, 120, 170}
+
+% ============================================================
+%  GLOBAL TYPOGRAPHY
+% ============================================================
+\setstretch{1.15}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+\AtBeginDocument{\color{cujdark}}
+
+% ============================================================
+%  HYPERREF SETUP
+% ============================================================
+\hypersetup{
+  colorlinks  = true,
+  linkcolor   = cujblue,
+  citecolor   = cujblue!70!black,
+  urlcolor    = cujblue!80!black,
+  pdftitle    = {Constructor Mathematical Journal},
+  pdfauthor   = {Constructor University Mathematics Society}
+}
+
+% ============================================================
+%  HEADERS & FOOTERS
+% ============================================================
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{cujgray}\itshape Constructor Mathematical Journal}
+\fancyhead[R]{\small\color{cujgray}\itshape\currentarticletitle}
+\fancyfoot[C]{\small\color{cujgray}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{%
+  \hbox to\headwidth{\color{cujlightgray}\leaders\hrule height\headrulewidth\hfill}}
+\renewcommand{\footrulewidth}{0pt}
+
+% Style for first page of each article
+\fancypagestyle{articlestart}{%
+  \fancyhf{}%
+  \fancyfoot[C]{\small\color{cujgray}\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+}
+
+% Style for front‑matter pages
+\fancypagestyle{frontmatter}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+}
+
+% ============================================================
+%  CURRENT‑ARTICLE TRACKING
+% ============================================================
+\newcommand{\currentarticletitle}{}
+\newcommand{\setarticletitle}[1]{%
+  \renewcommand{\currentarticletitle}{#1}}
+
+% ============================================================
+%  SECTION HEADING STYLES
+% ============================================================
+\titleformat{\section}
+  {\Large\bfseries\color{cujblue}}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\large\bfseries\color{cujblue!80!black}}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalsize\bfseries\color{cujblue!60!black}}{\thesubsubsection}{1em}{}
+
+% ============================================================
+%  ARTICLE COUNTER  (makes hyperref anchors unique per article)
+% ============================================================
+\newcounter{articlectr}
+
+% ============================================================
+%  ARTICLE HEADER
+% ============================================================
+%  Usage: \articleheader{Title}{Author}{Affiliation}{Abstract text}
+\newcommand{\articleheader}[4]{%
+  \clearpage
+  \stepcounter{articlectr}%
+  \thispagestyle{articlestart}%
+  \setarticletitle{#1}%
+  % reset per-article counters
+  \setcounter{section}{0}%
+  \setcounter{equation}{0}%
+  \setcounter{figure}{0}%
+  \setcounter{table}{0}%
+  \setcounter{footnote}{0}%
+  \setcounter{defnctr}{0}%
+  \setcounter{notectr}{0}%
+  \setcounter{thrmctr}{0}%
+  % unique hyperref anchors per article
+  \renewcommand{\theHsection}{art\thearticlectr.\thesection}%
+  \renewcommand{\theHsubsection}{art\thearticlectr.\thesubsection}%
+  \renewcommand{\theHsubsubsection}{art\thearticlectr.\thesubsubsection}%
+  \renewcommand{\theHequation}{art\thearticlectr.\theequation}%
+  \renewcommand{\theHfigure}{art\thearticlectr.\thefigure}%
+  % decorative rule
+  \noindent\textcolor{cujgold}{\rule{\textwidth}{2pt}}%
+  \vspace{0.9cm}%
+  \begin{center}
+    {\LARGE\bfseries\color{cujblue}#1}\\[0.55cm]
+    {\large #2}\\[0.2cm]
+    {\normalsize\color{cujgray}\itshape #3}
+  \end{center}
+  \vspace{0.45cm}%
+  \noindent\textcolor{cujblue}{\rule{\textwidth}{0.5pt}}%
+  \vspace{0.25cm}%
+  \begin{center}
+    \begin{minipage}{0.88\textwidth}
+      {\small\textbf{\color{cujblue}Abstract.}\ #4}
+    \end{minipage}
+  \end{center}
+  \vspace{0.25cm}%
+  \noindent\textcolor{cujblue}{\rule{\textwidth}{0.5pt}}%
+  \vspace{0.7cm}%
+}
+
+% ============================================================
+%  TABLE‑OF‑CONTENTS ENTRY  (manual journal ToC)
+% ============================================================
+%  Usage: \contentsentry{Title}{Author}{label}
+\newcommand{\contentsentry}[3]{%
+  \noindent
+  \begin{minipage}{\textwidth}
+    {\large\bfseries\color{cujblue}#1}\hfill{\normalsize\pageref{#3}}\\[0.12cm]
+    {\normalsize\itshape\color{cujgray}#2}
+  \end{minipage}
+  \vspace{0.7cm}\par
+}
+
+% ============================================================
+%  tcolorbox ENVIRONMENTS  (from paper 2, journal‑themed)
+% ============================================================
+
+% --- Definitions ---
+\newcounter{defnctr}
+\newtcolorbox{definitionbox}[1][]{%
+  colback=white, colframe=defnred,
+  colbacktitle=white, coltitle=defnred,
+  fonttitle=\bfseries,
+  title=Definition~\thedefnctr:,
+  boxrule=0.8pt, sharp corners, enhanced,
+  width=\textwidth,
+  before upper={\refstepcounter{defnctr}},
+  #1
+}
+
+% --- Notes ---
+\newcounter{notectr}
+\newtcolorbox{notebox}[1][]{%
+  colback=white, colframe=notelavender,
+  colbacktitle=white, coltitle=notelavender,
+  fonttitle=\bfseries,
+  title=Note~\thenotectr:,
+  boxrule=0.8pt, sharp corners, enhanced,
+  width=\textwidth,
+  before upper={\refstepcounter{notectr}},
+  #1
+}
+
+% --- Theorems (tcolorbox version) ---
+\newcounter{thrmctr}
+\newtcolorbox{theorembox}[1][]{%
+  colback=white, colframe=thrmblue,
+  colbacktitle=white, coltitle=thrmblue,
+  fonttitle=\bfseries,
+  title=Theorem~\thethrmctr:,
+  boxrule=0.8pt, sharp corners, enhanced,
+  width=\textwidth,
+  before upper={\refstepcounter{thrmctr}},
+  #1
+}
+
+% ── amsthm environments (paper 1 compatibility) ───────────
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+
+% ============================================================
+%  CUSTOM COMMANDS FROM ORIGINAL PAPERS
+% ============================================================
+% Paper 1
+\def\dent{~~~}
+\def\vdent{\vspace{0.6cm}}
+\renewcommand{\P}{\mathbb{P}}
+
+% Paper 2
+\newcommand{\nl}{\\[6pt]}
+\newcommand{\maghri}{~~~~~}
+
+% ============================================================
+%  GRAPHICS PATH  (covers both papers' image dirs)
+% ============================================================
+\graphicspath{%
+  {assets/papers/shannon-polar-codes/}%
+}
+
+% ============================================================
+%  ARTICLE REFERENCES HEADING
+% ============================================================
+%  Consistent "References" sub‑heading for each article
+\newcommand{\articlereferences}{%
+  \vspace{0.6cm}%
+  \noindent{\large\bfseries\color{cujblue}References}%
+  \vspace{0.3cm}\par
+}
+
+\endinput

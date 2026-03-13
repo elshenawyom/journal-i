@@ -1,0 +1,106 @@
+\linespread{1.6}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{hyperref}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+%\hypersetup{
+%    colorlinks=true,      % false: boxed links; true: colored links
+%    linkcolor=red,       % color of internal links
+%    citecolor=green,      % color of citations
+%    filecolor=magenta,    % color of file links
+%    urlcolor=red        % color of external links
+%}
+
+\usepackage{geometry}
+\usepackage{physics}  % for quantum states and Dirac notation
+\usepackage{tikz}     % optional, for diagrams
+\usepackage{caption}
+\usepackage[most]{tcolorbox}
+\geometry{top=1cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+\vspace*{0.cm}
+\usepackage{xcolor}
+\definecolor{myblue}{RGB}{179, 179, 204}  %notes
+\definecolor{myred}{RGB}{230, 0, 0} %definitions
+\definecolor{myblue1}{RGB}{0, 51, 204} %theorems
+\renewcommand{\labelitemi}{-}
+
+\newcounter{definition}
+\renewcommand{\thedefinition}{\arabic{definition}}
+
+\newtcolorbox{definitionbox}[1][]{
+  colback=white,
+  colframe=myred,
+  colbacktitle=white,
+  coltitle=myred,
+  fonttitle=\bfseries,
+  title=Definition~\thedefinition:,
+  boxrule=0.8pt,
+  sharp corners,
+  enhanced,
+  width=\textwidth,
+  before upper={\refstepcounter{definition}},
+  #1
+}
+\newcounter{note}
+\renewcommand{\thenote}{\arabic{note}}
+
+\newtcolorbox{notebox}[1][]{
+  colback=white,
+  colframe=myblue,
+  colbacktitle=white,
+  coltitle=myblue,
+  fonttitle=\bfseries,
+  title=Note~\thenote:,
+  boxrule=0.8pt,
+  sharp corners,
+  enhanced,
+  width=\textwidth,
+  before upper={\refstepcounter{note}},
+  #1
+}
+
+\newcounter{theorem}
+\renewcommand{\thetheorem}{\arabic{theorem}}
+
+\newtcolorbox{theorembox}[1][]{
+  colback=white,
+  colframe=myblue1,
+  colbacktitle=white,
+  coltitle=myblue1,
+  fonttitle=\bfseries,
+  title=Theorem~\thetheorem:,
+  boxrule=0.8pt,
+  sharp corners,
+  enhanced,
+  width=\textwidth,
+  before upper={\refstepcounter{theorem}},
+  #1
+}
+
+
+\usepackage{abstract}
+\renewcommand{\abstractname}{\Large Abstract}
+
+\usepackage{comment}
+
+\setcounter{section}{-1}
+
+\setcounter{page}{-4}
+
+%\newtheorem{theorem}{Theorem}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\setlength{\parindent}{0cm}
+
+
+\newcommand{\maghri}{~~~~~}
+
+
+%%%% bigger space jump with \\ (don't ask me what this is)
+
+\newcommand{\nl}{\\[6pt]}

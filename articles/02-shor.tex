@@ -1,0 +1,93 @@
+% ============================================================
+%  articles/02-shor.tex
+%  The Qubit and Shor's Algorithm — Ahmed Maghri
+% ============================================================
+\label{art:shor}
+
+\articleheader
+  {The Qubit and Shor's Algorithm: A Step-by-Step Exploration}
+  {Ahmed Maghri}
+  {Constructor University Bremen}
+  {Shor's algorithm presents a polynomial-time quantum solution to the
+   integer factorisation problem, threatening classical encryption protocols
+   like RSA\@.  This article introduces the mathematical and computational
+   foundations required to understand the algorithm, including modular
+   arithmetic, continued fractions, and quantum principles.  We provide a
+   step-by-step breakdown of Shor's algorithm and its quantum subroutine,
+   emphasising accessibility and conceptual clarity, while also addressing
+   practical constraints in current quantum hardware.  This article aims to
+   make the concepts of Shor's algorithm accessible to readers with limited
+   background in mathematics and quantum computing, while maintaining
+   mathematical rigour and conceptual depth throughout.}
+
+% ── Acknowledgements ──────────────────────────────────────
+\vspace{0.3cm}
+\noindent{\small\textbf{\color{cujblue}Acknowledgements.}\ %
+I would like to sincerely thank Omar Elshinawy, head of the Mathematics
+Society at Constructor University, for his valuable guidance and support
+throughout the research and writing of this article.  I also wish to thank
+Muaz Hussein, a first-year ECE major, for providing the first reviews and
+constructive feedback on the manuscript.  A heartfelt thanks goes to my
+mathematics and computer science professors and fellow Math Society members,
+whose enthusiasm and insight made this research journey both enriching and
+enjoyable.  Finally, and most importantly, I express my deepest gratitude to
+my parents, without whom none of this would have been possible.}
+\vspace{0.6cm}
+
+% ── Article body (original sections, renamed to remove spaces) ──
+
+\setcounter{section}{-1}
+
+\input{assets/papers/qubit-shor/sections/00-preliminaries}
+
+\input{assets/papers/qubit-shor/sections/01-intro-cryptography}
+
+\input{assets/papers/qubit-shor/sections/02-quantum-computing}
+
+\input{assets/papers/qubit-shor/sections/03-shor-algo}
+
+\input{assets/papers/qubit-shor/sections/04-final-thought}
+
+% ── References ────────────────────────────────────────────
+\articlereferences
+
+\begin{enumerate}[label={[\arabic*]}, leftmargin=2em, itemsep=0.25em]
+
+\item P.\,W.~Shor, ``Algorithms for Quantum Computation: Discrete
+      Logarithms and Factoring,'' \textit{Proc.\ 35th Annual Symposium
+      on Foundations of Computer Science}, IEEE, 1994.
+
+\item D.~Deutsch and R.~Jozsa, ``Rapid Solution of Problems by Quantum
+      Computation,'' \textit{Proc.\ Royal Society of London~A}, 1992.
+
+\item S.~Arora and B.~Barak, \textit{Computational Complexity: A Modern
+      Approach}, Princeton University Press, 2009.
+
+\item K.\,L.~Watkins, ``An Exposition on Peter Shor's Polynomial-Time
+      Factoring Algorithm and Its Effects on Post-Quantum Cryptography.''
+
+\item Classiq Technologies, ``Quantum Cryptography --- Shor's Algorithm
+      Explained.''
+
+\item Classiq Technologies, ``Quantum Algorithms: Shor's Algorithm.''
+
+\item Wikipedia, ``Shor's Algorithm.''
+
+\item Wikipedia, ``BQP\@.''
+
+\item Wikipedia, ``Hadamard Gate.''
+
+\item Wikipedia, ``Quantum Fourier Transform.''
+
+\item Wikipedia, ``Euclidean Algorithm.''
+
+\item Quantum Inspire, ``Hadamard Gate.''
+
+\item Veritasium, ``How Does a Quantum Computer Work?'' (video).
+
+\item Veritasium, ``How to Make a Quantum Bit?'' (video).
+
+\item Quantum Soar, ``Quantum Computing Course: 3.8 Shor's Algorithm''
+      (video).
+
+\end{enumerate}

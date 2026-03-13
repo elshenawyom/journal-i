@@ -1,0 +1,97 @@
+% ============================================================
+%  articles/01-shannon.tex
+%  Shannon's Theorem and Polar Codes — Aly Assaf
+% ============================================================
+\label{art:shannon}
+
+\articleheader
+  {Shannon's Theorem and Polar Codes}
+  {Aly Assaf}
+  {Constructor University Bremen}
+  {Coding Theory is responsible for facilitating reliable message-passing
+   over communication channels.  In 1948, Claude Shannon proved that for
+   every channel there exists a family of error-correcting codes that allow
+   reliable communication at any rate below the channel's capacity.
+   Shannon's work is, however, non-constructive, as it provides no method
+   to design such efficient codes.  While there have been attempts over the
+   years to reach this theoretical capacity, notably with LDPC codes (1990)
+   and Turbo Codes (1993), these could only empirically approach the
+   theoretical limit.  This stood for 60 years until Erdal Ar{\i}kan's
+   introduction of Polar Codes, the first clean and mathematically proven
+   family of codes to achieve Shannon's maximum capacity over symmetric
+   binary-input memoryless channels.  This expository paper aims to briefly
+   introduce the general Coding Theory scheme, outline the key ideas in
+   Shannon's arguments, and explore Ar{\i}kan's outstanding construction of
+   polar codes.}
+
+% ── Article body (original sections) ───────────────────────
+
+\input{assets/papers/shannon-polar-codes/sections/1-fundamentals}
+
+\input{assets/papers/shannon-polar-codes/sections/2-linearcodes}
+
+\input{assets/papers/shannon-polar-codes/sections/3-codingproblem}
+
+\input{assets/papers/shannon-polar-codes/sections/4-shannontheorem}
+
+\input{assets/papers/shannon-polar-codes/sections/5-polarcodes}
+
+% ── Conclusion ─────────────────────────────────────────────
+\section{Conclusion \& Final Remarks}
+
+We've followed in the footsteps of one of the greatest revolutionaries that
+built the foundations of reliable and efficient communication---Claude
+Shannon.  By exploring coding and information theory, we not only built our
+understanding on a number of underlying concepts but also developed a bird's
+eye view on how Ar{\i}kan took the teachings of Shannon to a practical
+application to the benefit of humanity.  The ingenuity and experimentation
+that Ar{\i}kan expressed during his development of Polar Codes is an
+impressive and satisfying learning experience.
+
+Shannon's Theorem is a beautiful mathematical construct that creates a clear
+guideline for engineers to build on.  Polar Codes are the practical
+realisation of this.  They are an incredible tool in the engineer's arsenal
+that allows optimised communication under the correct circumstances.
+
+% ── References ─────────────────────────────────────────────
+\articlereferences
+
+\begin{enumerate}[label={[\arabic*]}, leftmargin=2em, itemsep=0.25em]
+
+\item P.~Elias, ``Error-Free Coding,''
+      \textit{IRE Trans.\ Inform.\ Theory}, vol.~4, no.~4,
+      pp.~29--37, 1954.
+
+\item V.~Guruswami and A.~Rudra, ``Proof of Shannon's Theorem and an
+      Explicit Code,'' Lecture~4, \textit{CSE 533: Error-Correcting Codes},
+      Carnegie Mellon University, Oct.\ 2006.
+
+\item V.~Guruswami and D.~Halperin, ``More on Linear Codes,''
+      Lecture~2, \textit{CSE 533: Error-Correcting Codes},
+      Carnegie Mellon University, Oct.\ 2006.
+
+\item V.~Guruswami and W.~Machmouchi, ``Shannon's Theorem,''
+      Lecture~3, \textit{CSE 533: Error-Correcting Codes},
+      Carnegie Mellon University, Oct.\ 2006.
+
+\item V.~Guruswami and V.~Rastogi, ``Error Correcting Codes,''
+      Lecture~1, \textit{CSE 533: Error-Correcting Codes},
+      Carnegie Mellon University, Oct.\ 2006.
+
+\item L.~Slot and S.~Zur, ``Shannon's Noisy-Channel Coding Theorem,''
+      Vrije Universiteit Amsterdam, Feb.\ 2015.
+
+\item M.~Goemans, ``Shannon's Noisy Coding Theorem,''
+      18.310 Lecture Notes, MIT, May 2015.
+
+\item S.~Biswas, ``Introduction to Coding Theory: Basic Codes and
+      Shannon's Theorem,'' Undergraduate Research Paper, UChicago, 2011.
+
+\item M.~Sudan and M.~Suzgun, ``A Gentle Introduction to Polar Codes,''
+      Lecture~8, \textit{CS 229r: Information Theory in Computer Science},
+      Harvard University, Jan.\ 2019.
+
+\item O.~Elshinawy, ``Syllabus \& Agenda: Mathematics Undergraduate
+      Seminar,'' Spring 2025.
+
+\end{enumerate}
