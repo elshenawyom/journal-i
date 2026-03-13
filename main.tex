@@ -11,7 +11,6 @@
 % ── Front Matter ────────────────────────────────────────────
 \pagenumbering{roman}
 \input{front/cover}
-\input{front/editorial}
 \input{front/info}
 
 %   Table of Contents ──────────────────────────────────────
@@ -24,6 +23,21 @@
 \vspace{0.3cm}
 \noindent\textcolor{cujgold}{\rule{\textwidth}{1.2pt}}
 \vspace{0.8cm}
+
+% Editorial entry
+\contentsentry
+  {From the Editors}
+  {The Editorial Board}
+  {art:editorial}
+
+% Student articles heading
+\vspace{0.4cm}
+\noindent{\large\bfseries\color{cujblue}Student Articles}\[0.4cm]
+\noindent\textcolor{cujgold}{\rule{\textwidth}{0.8pt}}\vspace{0.6cm}
+
+
+%   Table of Contents ──────────────────────────────────────
+\vspace{0.6cm}
 
 \contentsentry
   {Shannon's Theorem and Polar Codes}
@@ -46,6 +60,17 @@
 % ── Articles ────────────────────────────────────────────────
 \clearpage
 \pagenumbering{arabic}
+
+% From the Editors (section 0)
+\input{front/editorial}
+
+% Student Articles intro page
+\clearpage
+\thispagestyle{frontmatter}
+\begin{center}
+  {\LARGE\bfseries\color{cujblue}Student Articles}
+\end{center}
+\vspace{0.6cm}
 
 \input{articles/01-shannon}
 

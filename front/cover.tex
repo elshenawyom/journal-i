@@ -113,37 +113,22 @@
 
 %% ── GOLD SEPARATOR ──────────────────────────────────────────
 \draw[cujgold!70, line width=0.6pt]
-  ([xshift=1.5cm, yshift=-21.3cm]current page.north west)
-  -- ([xshift=-1.5cm, yshift=-21.3cm]current page.north east);
+  ([xshift=1.5cm, yshift=-20.3cm]current page.north west)
+  -- ([xshift=-1.5cm, yshift=-20.3cm]current page.north east);
 
-%% ── IN THIS ISSUE (left column, ~55% width) ─────────────────
-\node[anchor=north west, text width=10.2cm, inner sep=0pt]
-  at ([xshift=1.5cm, yshift=-21.65cm]current page.north west) {%
-    {\small\bfseries\color{cujblue}IN THIS ISSUE}\\[0.4cm]
-    {\small\bfseries\color{cujdark}Shannon's Theorem and Polar Codes}\\
-    {\footnotesize\color{cujgray}\itshape Aly Assaf}\\[0.35cm]
-    {\small\bfseries\color{cujdark}The Qubit and Shor's Algorithm}\\
-    {\footnotesize\color{cujgray}\itshape Ahmed Maghri}\\[0.35cm]
-    {\small\bfseries\color{cujdark}Bragg's Law and X-Ray Crystallography}\\
-    {\footnotesize\color{cujgray}\itshape XXX\,---\,Author Name}%
+%% ── IN THIS ISSUE (centered, larger) ───────────────────────
+\node[anchor=center, text width=13.5cm, inner sep=0pt, align=center]
+  at ([yshift=-20.65cm]current page.center) {%
+    {\LARGE\bfseries\color{cujblue}IN THIS ISSUE}\\[0.5cm]
+    {\large\bfseries\color{cujdark}Shannon's Theorem and Polar Codes}\\
+    {\large\itshape\color{cujgray}Aly Assaf}\\[0.45cm]
+    {\large\bfseries\color{cujdark}The Qubit and Shor's Algorithm}\\
+    {\large\itshape\color{cujgray}Ahmed Maghri}\\[0.45cm]
+    {\large\bfseries\color{cujdark}Bragg's Law and X-Ray Crystallography}\\
+    {\large\itshape\color{cujgray}XXX\,---\,Author Name}%
   };
 
-%% ── ABOUT THE COVER (right column, ~40% width) ──────────────
-\node[anchor=north west, text width=8.0cm, inner sep=0pt]
-  at ([xshift=11.8cm, yshift=-21.65cm]current page.north west) {%
-    {\small\bfseries\color{cujblue}ABOUT THE COVER}\\[0.4cm]
-    {\footnotesize\color{cujdark}%
-      \textit{Left:}~Bragg's Law ($2d\sin\theta\!=\!n\lambda$) describes
-      X-ray diffraction from parallel crystal planes, the technique at the
-      heart of X-ray crystallography and protein structure determination.
-      \textit{Centre:}~The Bloch sphere parametrises the state space of a
-      qubit $\ket{\psi}$, the fundamental building block of Shor's
-      quantum factoring algorithm.
-      \textit{Right:}~Channel polarisation recursively splits a channel
-      $W$ into degraded ($W^-$) and improved ($W^+$) sub-channels,
-      the key idea in Ar{\i}kan's polar codes.%
-    }%
-  };
+
 
 %% ── BOTTOM BAND (3.7 cm) ────────────────────────────────────
 \fill[cujblue]
