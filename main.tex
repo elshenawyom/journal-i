@@ -1,6 +1,6 @@
 % ============================================================
 %  main.tex — Constructor Mathematical Journal
-%  Volume 1 · Spring 2025
+%  Volume I · Spring 2025
 %  Constructor University Mathematics Society
 % ============================================================
 \documentclass[11pt, twoside, a4paper]{article}
@@ -22,17 +22,23 @@
 \end{center}
 \vspace{0.3cm}
 \noindent\textcolor{cujgold}{\rule{\textwidth}{1.2pt}}
-\vspace{0.8cm}
+\vspace{0.3cm}
 
 % Editorial entry
 \contentsentry
-  {From the Editors}
-  {The Editorial Board}
-  {art:editorial}
+  {On The CMJ's First Volume}
+  {}
+  {art:volume}
+
+% Editorial entry
+\contentsentry
+  {Editor's Address}
+  {Omar Elshinawy --- MATH'25}
+  {art:address}
 
 % Student articles heading
 \vspace{0.4cm}
-\noindent{\large\bfseries\color{cujblue}Student Articles}\[0.4cm]
+\noindent{~~~\large\bfseries\color{cujblue}Student Articles}\\[-0.4cm]
 \noindent\textcolor{cujgold}{\rule{\textwidth}{0.8pt}}\vspace{0.6cm}
 
 
@@ -41,18 +47,18 @@
 
 \contentsentry
   {Shannon's Theorem and Polar Codes}
-  {Aly Assaf}
+  {Aly Assaf --- RIS'27}
   {art:shannon}
 
 \contentsentry
-  {The Qubit and Shor's Algorithm}
-  {Ahmed Maghri}
-  {art:shor}
+  {Bragg's Law and X-Ray Crystallography}
+  {Loredana-Maria Iacob --- BCCB'27}
+  {art:three}
 
 \contentsentry
-  {Bragg's Law and X-Ray Crystallography}
-  {XXX --- Author Name}
-  {art:three}
+  {The Qubit and Shor's Algorithm}
+  {Ahmed Maghri --- CS'26}
+  {art:shor}
 
 \vfill
 \noindent\textcolor{cujgold}{\rule{\textwidth}{1.2pt}}
@@ -61,21 +67,16 @@
 \clearpage
 \pagenumbering{arabic}
 
+% On this volume (section -1)
+\input{front/thisvolume}
+
 % From the Editors (section 0)
 \input{front/editorial}
 
-% Student Articles intro page
-\clearpage
-\thispagestyle{frontmatter}
-\begin{center}
-  {\LARGE\bfseries\color{cujblue}Student Articles}
-\end{center}
-\vspace{0.6cm}
-
 \input{articles/01-shannon}
 
-\input{articles/02-shor}
-
 \input{articles/03-placeholder}
+
+\input{articles/02-shor}
 
 \end{document}

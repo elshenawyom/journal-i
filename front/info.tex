@@ -5,76 +5,90 @@
 \clearpage
 \thispagestyle{frontmatter}
 
-\vspace*{1cm}
+% \vspace*{1cm}
 
-\begin{center}
-  {\LARGE\bfseries\color{cujblue}About This Journal}
-\end{center}
+% \begin{center}
+%   {\LARGE\bfseries\color{cujblue}About This Journal}
+% \end{center}
 
-\vspace{0.2cm}
-\noindent\textcolor{cujgold}{\rule{\textwidth}{1.2pt}}
-\vspace{0.6cm}
+% \vspace{0.2cm}
+% \noindent\textcolor{cujgold}{\rule{\textwidth}{1.2pt}}
+% \vspace{0.6cm}
+
+\def\internal{0.3cm}
+\def\external{0.7cm}
 
 % Two-column layout for this page
 \begin{minipage}[t]{0.47\textwidth}
 
   {\large\bfseries\color{cujblue}The Journal}
 
-  \vspace{0.3cm}
+  \vspace{\internal}
 
   The \textit{Constructor Mathematical Journal} (\textbf{CMJ}) is the
   undergraduate mathematics journal of Constructor University Bremen, published
-  annually by the Constructor University Mathematics Society (CUMS).
+  bi-annually by the Constructor University Mathematics Society (CUMS).
 
   \vspace{0.4cm}
 
-  CMJ publishes expository and research articles written by undergraduate and
-  graduate students. All articles originate in the CUMS Mathematics
-  Undergraduate Seminar and are developed into self-contained expositions
+  CMJ publishes expository and research articles written by undergraduate students. All articles originate in the society's own Mathematics
+  Undergraduate Seminar (UgS) and are developed into self-contained expositions,
   accessible to a broad mathematical audience.
 
-  \vspace{0.7cm}
+  \vspace{\external}
+  
+  {\large\bfseries\color{cujblue}Recorded Talks}
 
-  {\large\bfseries\color{cujblue}Editorial Board}
+  \vspace{\internal}
 
-  \vspace{0.3cm}
+  Each article in the {CMJ} is accompanied by a recorded talk delivered
+  at the UgS. The recordings are freely
+  available and provide an accessible entry point to each paper's ideas.
+
+  \vspace{\internal}
+
+  \noindent\href{https://elshenawyom.github.io/teaching/ugs}{\texttt{elshenawyom.github.io/teaching/ugs}}
+
+  \vspace{\external}
+
+      {\large\bfseries\color{cujblue}Editorial Board}
+
+  \vspace{\internal}
 
   \noindent
   \begin{tabular}{@{}l@{}}
     \textbf{Editor-in-Chief}\\
-    XXX\,---\,Name \textit{\color{cujgray}\small(Constructor University)}\\[0.3cm]
-    \textbf{Managing Editor}\\
-    XXX\,---\,Name \textit{\color{cujgray}\small(Constructor University)}\\[0.3cm]
-    \textbf{Associate Editors}\\
-    XXX\,---\,Name \textit{\color{cujgray}\small(Constructor University)}\\
-    XXX\,---\,Name \textit{\color{cujgray}\small(Constructor University)}\\[0.3cm]
+    Omar Elshinawy\,---\,{\color{cujgray}MATH'25}\\[0.3cm]
+    % \textbf{Managing Editor}\\
+    % XXX\,---\,{\color{cujgray}MAJOR'YEAR}\\[0.3cm]
+    % \textbf{Associate Editors}\\
+    % XXX\,---\,{\color{cujgray}MAJOR'YEAR} \\
+    % XXX\,---\,{\color{cujgray}MAJOR'YEAR}\\[0.3cm]
     \textbf{Faculty Advisor}\\
-    XXX\,---\,Name \textit{\color{cujgray}\small(Constructor University)}\\
+    Prof. Dr. Keivan Mallahi-Karai %\,---\,Name \textit{\color{cujgray}\small(Constructor University)}\\
   \end{tabular}
 
-  \vspace{0.7cm}
+    \vspace{\external}
 
-  {\large\bfseries\color{cujblue}Contact}
+      {\large\bfseries\color{cujblue}Cover Art}
 
-  \vspace{0.3cm}
-
-  Constructor University Mathematics Society\\
-  Campus Ring 1, 28759 Bremen, Germany\\[0.2cm]
-  \texttt{XXX@constructor.university}\\
-  \texttt{XXX\,---\,math.constructor.university}
-
+    Bragg's Law on a
+    protein crystal lattice (left) reflects the rays that determine
+    its structure; a Bloch sphere represents the qubit (centre) that is a 
+    superposition of ones and zeroes; and a channel polarization tree 
+    (right) freezes channels into reliable and unreliable ones to realise 
+    Shannon's capacity.
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.47\textwidth}
 
   {\large\bfseries\color{cujblue}Submission Guidelines}
 
-  \vspace{0.3cm}
+  \vspace{\internal}
 
   We welcome submissions from students at Constructor University and from
-  visiting researchers who have participated in the CUMS seminar.
+  visiting students who have participated in the UgS.
   Manuscripts should:
-
   \begin{itemize}[leftmargin=1.2em, itemsep=0.2em]
     \item be written in \LaTeX\ using the \texttt{cumsj} style package
           (available at the journal website);
@@ -83,58 +97,45 @@
     \item include a complete reference list.
   \end{itemize}
 
-  \vspace{0.3cm}
+  %\vspace{\internal}
 
-  Submissions and enquiries may be sent to the editorial address above.
-  The journal website provides the article template, style guide, and
-  submission portal:
+  To participate in the Undergraduate Seminar (UgS), there is a simple application 
+  process. One simply attends to a member of the society's board, possible through
+  the respective\\ contact channels, or simply follow closely the society's latest
+  announcements.
+  % \vspace{0.2cm}
+  % \noindent\texttt{XXX\,---\,math.constructor.university/cmj}
 
-  \vspace{0.2cm}
-  \noindent\texttt{XXX\,---\,math.constructor.university/cmj}
+  \vspace{\external}
 
-  \vspace{0.7cm}
+    {\large\bfseries\color{cujblue}Contact}
 
-  {\large\bfseries\color{cujblue}Recorded Talks}
+  \vspace{\internal}
+  \textbf{Address.}\\
+  Constructor University \\
+  Campus Ring 1\\
+  28759 Bremen\\
+  Germany\\[0.2cm]
+  \textbf{Email.}\\
+  \href{mailto:constructor.maths@gmail.com}{
+    \texttt{maths-society@constructor.university}
+    }\\[0.2cm]
+  \textbf{Main Site.}\\
+  \href{https://math.constructor.university/}{
+    \texttt{https://math.constructor.university}
+  }\\[0.2cm]
+  \textbf{Undergraduate Site.}\\
+  \href{https://constructor-math.github.io/Home Page/landing.html}{
+    \texttt{https://constructor-math.github.io}
+    }\\
 
-  \vspace{0.3cm}
+  \vspace{\external}
 
-  Each article in this volume is accompanied by a recorded talk delivered
-  at the CUMS Mathematics Undergraduate Seminar. The recordings are freely
-  available and provide an accessible entry point to each paper's ideas:
+  \noindent\textcolor{cujgold}{\rule{\textwidth}{1.2pt}}
 
-  \vspace{0.3cm}
-
-  \noindent\texttt{XXX\,---\,math.constructor.university/talks}
-
-  \vspace{0.3cm}
-
-  The talks are typically 30--45 minutes and are aimed at students with a
-  solid background in first-year undergraduate mathematics. All recordings
-  are hosted on the university's streaming platform and may be accessed
-  without registration.
-
-  \vspace{0.7cm}
-
-  {\large\bfseries\color{cujblue}About the cover}
-
-  \vspace{0.3cm}
-
-  The cover combines artistic elements from each article: Bragg's Law and a
-  crystal lattice (left), a Bloch sphere representing the qubit (centre), and
-  a small channel polarization tree (right). A subtle translucent overlay and
-  shared colour palette visually blend the three panels and emphasise the
-  thematic links between physical structure, information theory, and quantum
-  computation.
-
-  \vspace{0.7cm}
-
-  {\large\bfseries\color{cujblue}Acknowledgements}
-
-  \vspace{0.3cm}
-
-  The editors thank the Constructor University Mathematics Department for
-  their generous support, and all seminar participants whose questions and
-  discussions shaped the final articles.
+  \noindent{\small\color{cujgray}%
+  \textcopyright\ 2025 Constructor University Mathematics\\ Society.
+  All rights reserved. \hfill}
 
 \end{minipage}
 

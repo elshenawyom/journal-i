@@ -70,9 +70,9 @@
 \definecolor{cujlightgray}{RGB}{230, 230, 230}
 
 % tcolorbox accent colors
-\definecolor{defnred}{RGB}{160, 30, 30}
-\definecolor{thrmblue}{RGB}{100, 10, 20}        % deep burgundy
-\definecolor{notelavender}{RGB}{120, 120, 170}
+\definecolor{cujred}{RGB}{160, 30, 30}
+\definecolor{cujthrmblue}{RGB}{100, 10, 20}        % deep burgundy
+\definecolor{cujlavender}{RGB}{120, 120, 170}
 
 % ============================================================
 %  GLOBAL TYPOGRAPHY
@@ -207,8 +207,8 @@
 % --- Definitions ---
 \newcounter{defnctr}
 \newtcolorbox{definitionbox}[1][]{%
-  colback=white, colframe=defnred,
-  colbacktitle=white, coltitle=defnred,
+  colback=white, colframe=cujred,
+  colbacktitle=white, coltitle=cujred,
   fonttitle=\bfseries,
   title=Definition~\thedefnctr:,
   boxrule=0.8pt, sharp corners, enhanced,
@@ -220,8 +220,8 @@
 % --- Notes ---
 \newcounter{notectr}
 \newtcolorbox{notebox}[1][]{%
-  colback=white, colframe=notelavender,
-  colbacktitle=white, coltitle=notelavender,
+  colback=white, colframe=cujlavender,
+  colbacktitle=white, coltitle=cujlavender,
   fonttitle=\bfseries,
   title=Note~\thenotectr:,
   boxrule=0.8pt, sharp corners, enhanced,
@@ -233,8 +233,8 @@
 % --- Theorems (tcolorbox version) ---
 \newcounter{thrmctr}
 \newtcolorbox{theorembox}[1][]{%
-  colback=white, colframe=thrmblue,
-  colbacktitle=white, coltitle=thrmblue,
+  colback=white, colframe=cujthrmblue,
+  colbacktitle=white, coltitle=cujthrmblue,
   fonttitle=\bfseries,
   title=Theorem~\thethrmctr:,
   boxrule=0.8pt, sharp corners, enhanced,
