@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.12)  14 MAR 2026 17:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.12)  15 MAR 2026 03:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -23,8 +23,8 @@ File: size11.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
 \bibindent=\dimen141
-) (cumsj.sty
-Package: cumsj 2025/03/01 CUMSJ Journal Style v1.0
+) (cmj.sty
+Package: cmj 2025/03/01 CMJ Journal Style v1.0
  (C:\Program Files\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 ) (C:\Program Files\MiKTeX\tex/latex/base\inputenc.sty
@@ -832,8 +832,8 @@ File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 * \textheight=702.78308pt
 * \oddsidemargin=-1.1381pt
 * \evensidemargin=-1.1381pt
-* \topmargin=-48.1381pt
-* \headheight=22.0pt
+* \topmargin=-62.1381pt
+* \headheight=36.0pt
 * \headsep=25.0pt
 * \topskip=11.0pt
 * \footskip=30.0pt
@@ -987,7 +987,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 143--15
 [3
 
 ] (front/thisvolume.tex
-LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 47.
+LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 41.
  (C:\Program Files\MiKTeX\tex/latex/psnfss\ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 )
@@ -1019,7 +1019,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--8
 [3
 
 ]
-<assets/papers/shannon-polar-codes/images/bsc.png, id=273, 229.45724pt x 166.82326pt>
+<assets/papers/shannon-polar-codes/images/bsc.png, id=272, 229.45724pt x 166.82326pt>
 File: assets/papers/shannon-polar-codes/images/bsc.png Graphic file (type png)
 <use assets/papers/shannon-polar-codes/images/bsc.png>
 Package pdftex.def Info: assets/papers/shannon-polar-codes/images/bsc.png  used on input line 27.
@@ -1060,7 +1060,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 47--48
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 3302) has occurred while \output is active []
 
 
 
@@ -1104,7 +1104,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 70--71
 
  []
 
-<assets/papers/shannon-polar-codes/images/xor.png, id=286, 311.1625pt x 174.6525pt>
+<assets/papers/shannon-polar-codes/images/xor.png, id=285, 311.1625pt x 174.6525pt>
 File: assets/papers/shannon-polar-codes/images/xor.png Graphic file (type png)
 <use assets/papers/shannon-polar-codes/images/xor.png>
 Package pdftex.def Info: assets/papers/shannon-polar-codes/images/xor.png  used on input line 74.
@@ -1112,7 +1112,7 @@ Package pdftex.def Info: assets/papers/shannon-polar-codes/images/xor.png  used 
 
 
 [5 <./assets/papers/shannon-polar-codes/images/xor.png>]
-<assets/papers/shannon-polar-codes/images/hammingball.jpg, id=294, 553.31718pt x 201.75375pt>
+<assets/papers/shannon-polar-codes/images/hammingball.jpg, id=293, 553.31718pt x 201.75375pt>
 File: assets/papers/shannon-polar-codes/images/hammingball.jpg Graphic file (type jpg)
 <use assets/papers/shannon-polar-codes/images/hammingball.jpg>
 Package pdftex.def Info: assets/papers/shannon-polar-codes/images/hammingball.jpg  used on input line 87.
@@ -1125,7 +1125,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 99--100
 
 
 [6 <./assets/papers/shannon-polar-codes/images/hammingball.jpg>]
-<assets/papers/shannon-polar-codes/images/chernoff.png, id=301, 433.62pt x 299.1175pt>
+<assets/papers/shannon-polar-codes/images/chernoff.png, id=300, 433.62pt x 299.1175pt>
 File: assets/papers/shannon-polar-codes/images/chernoff.png Graphic file (type png)
 <use assets/papers/shannon-polar-codes/images/chernoff.png>
 Package pdftex.def Info: assets/papers/shannon-polar-codes/images/chernoff.png  used on input line 149.
@@ -1135,13 +1135,13 @@ Package pdftex.def Info: assets/papers/shannon-polar-codes/images/chernoff.png  
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 ) (assets/papers/shannon-polar-codes/sections/2-linearcodes.tex) (assets/papers/shannon-polar-codes/sections/3-codingproblem.tex
+
+[7]
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
 
-
-[7]
 Underfull \hbox (badness 10000) in paragraph at lines 8--9
 
  []
@@ -1183,7 +1183,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
-<assets/papers/shannon-polar-codes/images/hammingballs.png, id=313, 344.487pt x 336.0555pt>
+<assets/papers/shannon-polar-codes/images/hammingballs.png, id=312, 344.487pt x 336.0555pt>
 File: assets/papers/shannon-polar-codes/images/hammingballs.png Graphic file (type png)
 <use assets/papers/shannon-polar-codes/images/hammingballs.png>
 Package pdftex.def Info: assets/papers/shannon-polar-codes/images/hammingballs.png  used on input line 29.
@@ -1206,14 +1206,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--29
  []
 
 
+
+[10 <./assets/papers/shannon-polar-codes/images/hammingballs.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 30--31
 
  []
 
-
-
-[10 <./assets/papers/shannon-polar-codes/images/hammingballs.png>]
-<assets/papers/shannon-polar-codes/images/entropyplot.png, id=328, 1204.5pt x 1204.5pt>
+<assets/papers/shannon-polar-codes/images/entropyplot.png, id=327, 1204.5pt x 1204.5pt>
 File: assets/papers/shannon-polar-codes/images/entropyplot.png Graphic file (type png)
 <use assets/papers/shannon-polar-codes/images/entropyplot.png>
 Package pdftex.def Info: assets/papers/shannon-polar-codes/images/entropyplot.png  used on input line 36.
@@ -1224,7 +1223,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 65--66
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 3375) has occurred while \output is active []
 
 
 
@@ -1233,7 +1232,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 116--118
 
  []
 
-<assets/papers/shannon-polar-codes/images/entropy.png, id=336, 746.79pt x 525.965pt>
+<assets/papers/shannon-polar-codes/images/entropy.png, id=335, 746.79pt x 525.965pt>
 File: assets/papers/shannon-polar-codes/images/entropy.png Graphic file (type png)
 <use assets/papers/shannon-polar-codes/images/entropy.png>
 Package pdftex.def Info: assets/papers/shannon-polar-codes/images/entropy.png  used on input line 124.
@@ -1316,12 +1315,12 @@ LaTeX Warning: Reference `fig:localpolar' on page 15 undefined on input line 55.
 
 
 [15]
-<assets/papers/shannon-polar-codes/images/localpolarization.png, id=362, 223.43475pt x 109.6095pt>
+<assets/papers/shannon-polar-codes/images/localpolarization.png, id=361, 223.43475pt x 109.6095pt>
 File: assets/papers/shannon-polar-codes/images/localpolarization.png Graphic file (type png)
 <use assets/papers/shannon-polar-codes/images/localpolarization.png>
 Package pdftex.def Info: assets/papers/shannon-polar-codes/images/localpolarization.png  used on input line 60.
 (pdftex.def)             Requested size: 227.62206pt x 111.66972pt.
-<assets/papers/shannon-polar-codes/images/recursiontree.png, id=364, 409.53pt x 442.65375pt>
+<assets/papers/shannon-polar-codes/images/recursiontree.png, id=363, 409.53pt x 442.65375pt>
 File: assets/papers/shannon-polar-codes/images/recursiontree.png Graphic file (type png)
 <use assets/papers/shannon-polar-codes/images/recursiontree.png>
 Package pdftex.def Info: assets/papers/shannon-polar-codes/images/recursiontree.png  used on input line 69.
@@ -1343,43 +1342,100 @@ Underfull \hbox (badness 10000) in paragraph at lines 84--38
 
 
 
-[17]) (articles/03-placeholder.tex
+[17]
 
-[18]) (articles/02-shor.tex
+[18]) (articles/03-bragg.tex
 
 [19
 
 ]
+<assets/papers/bragg-x-ray/bragg-fig1.png, id=395, 440.39531pt x 440.39531pt>
+File: assets/papers/bragg-x-ray/bragg-fig1.png Graphic file (type png)
+<use assets/papers/bragg-x-ray/bragg-fig1.png>
+Package pdftex.def Info: assets/papers/bragg-x-ray/bragg-fig1.png  used on input line 73.
+(pdftex.def)             Requested size: 227.62206pt x 227.62257pt.
 
-[20] (assets/papers/qubit-shor/sections/00-preliminaries.tex
 
-[21
+[20 <./assets/papers/bragg-x-ray/bragg-fig1.png>]
+<assets/papers/bragg-x-ray/bragg-fig2.png, id=402, 464.4853pt x 438.13687pt>
+File: assets/papers/bragg-x-ray/bragg-fig2.png Graphic file (type png)
+<use assets/papers/bragg-x-ray/bragg-fig2.png>
+Package pdftex.def Info: assets/papers/bragg-x-ray/bragg-fig2.png  used on input line 119.
+(pdftex.def)             Requested size: 227.62206pt x 214.71568pt.
+
+
+[21 <./assets/papers/bragg-x-ray/bragg-fig2.png>]
+<assets/papers/bragg-x-ray/bragg-fig3.png, id=412, 304.88907pt x 313.17pt>
+File: assets/papers/bragg-x-ray/bragg-fig3.png Graphic file (type png)
+<use assets/papers/bragg-x-ray/bragg-fig3.png>
+Package pdftex.def Info: assets/papers/bragg-x-ray/bragg-fig3.png  used on input line 171.
+(pdftex.def)             Requested size: 182.09486pt x 187.04807pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[22]
+<assets/papers/bragg-x-ray/bragg-fig4.png, id=420, 477.28313pt x 337.26pt>
+File: assets/papers/bragg-x-ray/bragg-fig4.png Graphic file (type png)
+<use assets/papers/bragg-x-ray/bragg-fig4.png>
+Package pdftex.def Info: assets/papers/bragg-x-ray/bragg-fig4.png  used on input line 207.
+(pdftex.def)             Requested size: 227.62206pt x 160.84343pt.
+
+Underfull \vbox (badness 2856) has occurred while \output is active []
+
+
+
+[23 <./assets/papers/bragg-x-ray/bragg-fig3.png> <./assets/papers/bragg-x-ray/bragg-fig4.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[24]
+<assets/papers/bragg-x-ray/bragg-fig5.png, id=433, 572.89032pt x 371.88937pt>
+File: assets/papers/bragg-x-ray/bragg-fig5.png Graphic file (type png)
+<use assets/papers/bragg-x-ray/bragg-fig5.png>
+Package pdftex.def Info: assets/papers/bragg-x-ray/bragg-fig5.png  used on input line 292.
+(pdftex.def)             Requested size: 227.62206pt x 147.76006pt.
+
+
+[25 <./assets/papers/bragg-x-ray/bragg-fig5.png>]
+
+[26]
+
+[27]) (articles/02-shor.tex (assets/papers/qubit-shor/sections/00-preliminaries.tex
+
+[28
 
 ]
 
-[22]
+[29]
 Overfull \hbox (1.32024pt too wide) in paragraph at lines 90--91
 []$\U/fplmbb/m/n/10.95 Z$\T1/pplx/b/n/10.95 (-20) : \T1/pplx/m/n/10.95 (-20) In-te-gers ^^V all whole num-bers, pos-i-tive and neg-a-tive, in-clud-ing zero: $\OT1/pplx/m/n/10.95 (-20) ..., \OMS/zplm/m/n/10.95 ^^@\OT1/pplx/m/n/10.95 (-20) 2, \OMS/zplm/m/n/10.95 ^^@\OT1/pplx/m/n/10.95 (-20) 1, 0, 1, 2, ...$ 
  []
 
 
 
-[23]) (assets/papers/qubit-shor/sections/01-intro-cryptography.tex
+[30]) (assets/papers/qubit-shor/sections/01-intro-cryptography.tex
 
-[24]) (assets/papers/qubit-shor/sections/02-quantum-computing.tex
+[31]) (assets/papers/qubit-shor/sections/02-quantum-computing.tex
 
-[25]) (assets/papers/qubit-shor/sections/03-shor-algo.tex
+[32]) (assets/papers/qubit-shor/sections/03-shor-algo.tex
 
-[26]
+[33]
 
-[27]
+[34]
 Underfull \vbox (badness 2310) has occurred while \output is active []
 
 
 
-[28]
+[35]
 
-[29]
+[36]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 185.
@@ -1393,15 +1449,15 @@ Underfull \vbox (badness 2142) has occurred while \output is active []
 
 
 
-[30]
+[37]
 
-[31]
+[38]
 
-[32]) (assets/papers/qubit-shor/sections/04-final-thought.tex
+[39]) (assets/papers/qubit-shor/sections/04-final-thought.tex
 
-[33]))
+[40]))
 
-[34] (main.aux)
+[41] (main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1411,20 +1467,20 @@ L3 programming layer <2025-01-18>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A4E95E586ED3FE95ACA7D099009D3396;8104.
+(rerunfilecheck)             Checksum: D3989DB48F9CA8628726CD21A1DF75CE;9104.
  ) 
 Here is how much of TeX's memory you used:
- 36200 strings out of 473523
- 712621 string characters out of 5724700
- 1142157 words of memory out of 5000000
- 57856 multiletter control sequences out of 15000+600000
- 686887 words of font info for 686 fonts, out of 8000000 for 9000
+ 36302 strings out of 473523
+ 715046 string characters out of 5724700
+ 1142921 words of memory out of 5000000
+ 57909 multiletter control sequences out of 15000+600000
+ 689041 words of font info for 718 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  101i,13n,110p,1069b,925s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Work\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/mathpazo/fplmbb.pfb><C:/Program Files/MiKTeX/fonts/type1/public/mathpazo/fplmr.pfb><C:/Program Files/MiKTeX/fonts/type1/public/mathpazo/fplmri.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (37 pages, 595694 bytes).
+Output written on main.pdf (44 pages, 1485631 bytes).
 PDF statistics:
- 589 PDF objects out of 1000 (max. 8388607)
- 138 named destinations out of 1000 (max. 500000)
- 170552 words of extra memory for PDF output out of 184870 (max. 10000000)
+ 637 PDF objects out of 1000 (max. 8388607)
+ 145 named destinations out of 1000 (max. 500000)
+ 170577 words of extra memory for PDF output out of 184870 (max. 10000000)
 

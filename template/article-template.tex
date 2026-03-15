@@ -1,14 +1,14 @@
 % ============================================================
 %  article-template.tex
-%  TEMPLATE — Copy this file and rename it to add a new article.
+%  TEMPLATE — Copy this file to articles/ and rename it to add a new article.
 %
 %  Steps:
-%    1. Copy this file as  article-NN-short-name.tex
-%    2. Fill in the five arguments of \articleheader
+%    1. Copy this file as  articles/NN-short-name.tex
+%    2. Fill in the four arguments of \articleheader
 %    3. Replace the placeholder sections with your content
-%       (or use \input{} to include section files)
+%       (or use \input{} to include section files from assets/papers/)
 %    4. Add your references at the bottom
-%    5. In main.tex, add:  \input{article-NN-short-name}
+%    5. In main.tex, add:  \input{articles/NN-short-name}
 %    6. In the Table-of-Contents block of main.tex, add a
 %       \contentsentry with matching label
 % ============================================================
@@ -19,19 +19,19 @@
 \articleheader
   {TITLE OF THE ARTICLE}           % Title
   {AUTHOR NAME}                    % Author(s)
-  {AFFILIATION}                    % Affiliation
+  {Department, Class of 20XX\\Constructor University Bremen}  % Affiliation
   {ABSTRACT TEXT.  Write a concise summary of the article here,
    covering the main question, methodology, and results.}
 
 % ── Optional: Acknowledgements ────────────────────────────
 % \vspace{0.3cm}
-% \noindent{\small\textbf{\color{cujblue}Acknowledgements.}\ %
+% \noindent{\small\textbf{\color{cmjcrimson}Acknowledgements.}\ %
 % Thank collaborators, advisors, funding sources, etc.}
 % \vspace{0.6cm}
 
 % ── Article body ──────────────────────────────────────────
 % You can write sections directly here or use \input{} to pull
-% in separate .tex files.
+% in separate .tex files from assets/papers/your-topic/.
 
 \section{Introduction}
 

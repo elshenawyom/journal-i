@@ -1,10 +1,10 @@
 % ============================================================
-% cumsj.sty — Constructor University Mathematics Society Journal
-% Style file for "Constructor Mathematical Journal"
+% cmj.sty — Constructor Mathematical Journal
+% Style file for the "Constructor Mathematical Journal"
 % Version 1.0 · Spring 2025
 % ============================================================
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{cumsj}[2025/03/01 CUMSJ Journal Style v1.0]
+\ProvidesPackage{cmj}[2026/03/15 CMJ Journal Style v1.0]
 
 % ── Typography & Fonts ──────────────────────────────────────
 \RequirePackage[T1]{fontenc}
@@ -20,7 +20,7 @@
   bottom=2.5cm,
   left=2.5cm,
   right=2.5cm,
-  headheight=22pt
+  headheight=36pt
 ]{geometry}
 
 % ── Headers & Footers ──────────────────────────────────────
@@ -62,17 +62,17 @@
 % ============================================================
 %  COLOR PALETTE
 % ============================================================
-\definecolor{cujblue}{RGB}{155, 20, 30}        % deep crimson (primary)
-\definecolor{cujgold}{RGB}{186, 145, 40}        % gold (accent)
-\definecolor{cujlightblue}{RGB}{255, 240, 240}  % blush rose (light bg)
-\definecolor{cujdark}{RGB}{35, 35, 35}
-\definecolor{cujgray}{RGB}{128, 128, 128}
-\definecolor{cujlightgray}{RGB}{230, 230, 230}
+\definecolor{cmjcrimson}{RGB}{155, 20, 30}        % deep crimson (primary)
+\definecolor{cmjgold}{RGB}{186, 145, 40}          % gold (accent)
+\definecolor{cmjlightcrimson}{RGB}{255, 240, 240} % blush rose (light bg)
+\definecolor{cmjdark}{RGB}{35, 35, 35}
+\definecolor{cmjgray}{RGB}{128, 128, 128}
+\definecolor{cmjlightgray}{RGB}{230, 230, 230}
 
 % tcolorbox accent colors
-\definecolor{cujred}{RGB}{160, 30, 30}
-\definecolor{cujthrmblue}{RGB}{100, 10, 20}        % deep burgundy
-\definecolor{cujlavender}{RGB}{120, 120, 170}
+\definecolor{cmjred}{RGB}{160, 30, 30}
+\definecolor{cmjthrmblue}{RGB}{100, 10, 20}        % deep burgundy
+\definecolor{cmjlavender}{RGB}{120, 120, 170}
 
 % ============================================================
 %  GLOBAL TYPOGRAPHY
@@ -80,16 +80,16 @@
 \setstretch{1.15}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0.45em}
-\AtBeginDocument{\color{cujdark}}
+\AtBeginDocument{\color{cmjdark}}
 
 % ============================================================
 %  HYPERREF SETUP
 % ============================================================
 \hypersetup{
   colorlinks  = true,
-  linkcolor   = cujblue,
-  citecolor   = cujblue!70!black,
-  urlcolor    = cujblue!80!black,
+  linkcolor   = cmjcrimson,
+  citecolor   = cmjcrimson!70!black,
+  urlcolor    = cmjcrimson!80!black,
   pdftitle    = {Constructor Mathematical Journal},
   pdfauthor   = {Constructor University Mathematics Society}
 }
@@ -99,18 +99,18 @@
 % ============================================================
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\color{cujgray}\itshape Constructor Mathematical Journal}
-\fancyhead[R]{\small\color{cujgray}\itshape\currentarticletitle}
-\fancyfoot[C]{\small\color{cujgray}\thepage}
+\fancyhead[L]{\small\color{cmjgray}\itshape Constructor Mathematical Journal}
+\fancyhead[R]{\small\color{cmjgray}\itshape\currentarticletitle}
+\fancyfoot[C]{\small\color{cmjgray}\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\headrule}{%
-  \hbox to\headwidth{\color{cujlightgray}\leaders\hrule height\headrulewidth\hfill}}
+  \hbox to\headwidth{\color{cmjlightgray}\leaders\hrule height\headrulewidth\hfill}}
 \renewcommand{\footrulewidth}{0pt}
 
 % Style for first page of each article
 \fancypagestyle{articlestart}{%
   \fancyhf{}%
-  \fancyfoot[C]{\small\color{cujgray}\thepage}%
+  \fancyfoot[C]{\small\color{cmjgray}\thepage}%
   \renewcommand{\headrulewidth}{0pt}%
 }
 
@@ -131,11 +131,11 @@
 %  SECTION HEADING STYLES
 % ============================================================
 \titleformat{\section}
-  {\Large\bfseries\color{cujblue}}{\thesection}{1em}{}
+  {\Large\bfseries\color{cmjcrimson}}{\thesection}{1em}{}[\normalcolor]
 \titleformat{\subsection}
-  {\large\bfseries\color{cujblue!80!black}}{\thesubsection}{1em}{}
+  {\large\bfseries\color{cmjcrimson!80!black}}{\thesubsection}{1em}{}[\normalcolor]
 \titleformat{\subsubsection}
-  {\normalsize\bfseries\color{cujblue!60!black}}{\thesubsubsection}{1em}{}
+  {\normalsize\bfseries\color{cmjcrimson!60!black}}{\thesubsubsection}{1em}{}[\normalcolor]
 
 % ============================================================
 %  ARTICLE COUNTER  (makes hyperref anchors unique per article)
@@ -145,12 +145,14 @@
 % ============================================================
 %  ARTICLE HEADER
 % ============================================================
-%  Usage: \articleheader{Title}{Author}{Affiliation}{Abstract text}
-\newcommand{\articleheader}[4]{%
+%  Usage: \articleheader[Short running title]{Title}{Author}{Affiliation}{Abstract}
+%  The optional first arg sets the page-header running title independently
+%  of the display title. If omitted, the full title is used.
+\newcommand{\articleheader}[5][]{%
   \clearpage
   \stepcounter{articlectr}%
   \thispagestyle{articlestart}%
-  \setarticletitle{#1}%
+  \ifblank{#1}{\setarticletitle{#2}}{\setarticletitle{#1}}%
   % reset per-article counters
   \setcounter{section}{0}%
   \setcounter{equation}{0}%
@@ -167,24 +169,25 @@
   \renewcommand{\theHequation}{art\thearticlectr.\theequation}%
   \renewcommand{\theHfigure}{art\thearticlectr.\thefigure}%
   % decorative rule
-  \noindent\textcolor{cujgold}{\rule{\textwidth}{2pt}}%
+  \noindent\textcolor{cmjgold}{\rule{\textwidth}{2pt}}%
   \vspace{0.9cm}%
   \begin{center}
-    {\LARGE\bfseries\color{cujblue}#1}\\[0.55cm]
-    {\large #2}\\[0.2cm]
-    {\normalsize\color{cujgray}\itshape #3}
+    {\LARGE\bfseries\color{cmjcrimson}#2}\\[0.55cm]
+    {\large #3}\\[0.2cm]
+    {\normalsize\color{cmjgray}\itshape #4}
   \end{center}
   \vspace{0.45cm}%
-  \noindent\textcolor{cujblue}{\rule{\textwidth}{0.5pt}}%
+  \noindent\textcolor{cmjcrimson}{\rule{\textwidth}{0.5pt}}%
   \vspace{0.25cm}%
   \begin{center}
     \begin{minipage}{0.88\textwidth}
-      {\small\textbf{\color{cujblue}Abstract.}\ #4}
+      {\small\textbf{\textcolor{cmjcrimson}{Abstract.}}\ #5}
     \end{minipage}
   \end{center}
   \vspace{0.25cm}%
-  \noindent\textcolor{cujblue}{\rule{\textwidth}{0.5pt}}%
+  \noindent\textcolor{cmjcrimson}{\rule{\textwidth}{0.5pt}}%
   \vspace{0.7cm}%
+  \normalcolor
 }
 
 % ============================================================
@@ -194,8 +197,8 @@
 \newcommand{\contentsentry}[3]{%
   \noindent
   \begin{minipage}{\textwidth}
-    {\large\bfseries\color{cujblue}#1}\hfill{\normalsize\pageref{#3}}\\[0.12cm]
-    {\normalsize\itshape\color{cujgray}#2}
+    {\large\bfseries\color{cmjcrimson}#1}\hfill{\normalsize\pageref{#3}}\\[0.12cm]
+    {\normalsize\itshape\color{cmjgray}#2}
   \end{minipage}
   \vspace{0.7cm}\par
 }
@@ -207,8 +210,8 @@
 % --- Definitions ---
 \newcounter{defnctr}
 \newtcolorbox{definitionbox}[1][]{%
-  colback=white, colframe=cujred,
-  colbacktitle=white, coltitle=cujred,
+  colback=white, colframe=cmjred,
+  colbacktitle=white, coltitle=cmjred,
   fonttitle=\bfseries,
   title=Definition~\thedefnctr:,
   boxrule=0.8pt, sharp corners, enhanced,
@@ -220,8 +223,8 @@
 % --- Notes ---
 \newcounter{notectr}
 \newtcolorbox{notebox}[1][]{%
-  colback=white, colframe=cujlavender,
-  colbacktitle=white, coltitle=cujlavender,
+  colback=white, colframe=cmjlavender,
+  colbacktitle=white, coltitle=cmjlavender,
   fonttitle=\bfseries,
   title=Note~\thenotectr:,
   boxrule=0.8pt, sharp corners, enhanced,
@@ -233,8 +236,8 @@
 % --- Theorems (tcolorbox version) ---
 \newcounter{thrmctr}
 \newtcolorbox{theorembox}[1][]{%
-  colback=white, colframe=cujthrmblue,
-  colbacktitle=white, coltitle=cujthrmblue,
+  colback=white, colframe=cmjthrmblue,
+  colbacktitle=white, coltitle=cmjthrmblue,
   fonttitle=\bfseries,
   title=Theorem~\thethrmctr:,
   boxrule=0.8pt, sharp corners, enhanced,
@@ -267,6 +270,7 @@
 % ============================================================
 \graphicspath{%
   {assets/papers/shannon-polar-codes/}%
+  {assets/papers/bragg-x-ray/}%
 }
 
 % ============================================================
@@ -275,7 +279,7 @@
 %  Consistent "References" sub‑heading for each article
 \newcommand{\articlereferences}{%
   \vspace{0.6cm}%
-  \noindent{\large\bfseries\color{cujblue}References}%
+  \noindent{\large\bfseries\color{cmjcrimson}References}%
   \vspace{0.3cm}\par
 }
 
