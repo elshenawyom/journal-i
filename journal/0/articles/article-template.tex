@@ -1,0 +1,59 @@
+% ============================================================
+%  article-template.tex
+%  TEMPLATE — Copy this file to articles/ and rename it to add a new article.
+%
+%  Steps:
+%    1. Copy this file as  articles/NN-short-name.tex
+%    2. Fill in the four arguments of \articleheader
+%    3. Replace the placeholder sections with your content
+%       (or use \input{} to include section files from articles/papers/)
+%    4. Add your references at the bottom
+%    5. In main.tex, add:  \input{articles/NN-short-name}
+%    6. In the Table-of-Contents block of main.tex, add a
+%       \contentsentry with matching label
+% ============================================================
+
+% Give the article a unique label for cross‑referencing & ToC
+\label{art:LABEL}
+
+\articleheader
+  {TITLE OF THE ARTICLE}           % Title
+  {AUTHOR NAME}                    % Author(s)
+  {Department, Class of 20XX\\Constructor University Bremen}  % Affiliation
+  {ABSTRACT TEXT.  Write a concise summary of the article here,
+   covering the main question, methodology, and results.}
+
+% ── Optional: Acknowledgements ────────────────────────────
+% \vspace{0.3cm}
+% \noindent{\small\textbf{\color{cmjcrimson}Acknowledgements.}\ %
+% Thank collaborators, advisors, funding sources, etc.}
+% \vspace{0.6cm}
+
+% ── Article body ──────────────────────────────────────────
+% You can write sections directly here or use \input{} to pull
+% in separate .tex files from articles/papers/your-topic/.
+
+\section{Introduction}
+
+Your introductory text goes here.
+
+\section{Preliminaries}
+
+Definitions, notation, and background material.
+
+\section{Main Results}
+
+Core content: theorems, proofs, examples, figures.
+
+\section{Conclusion}
+
+Summary of findings and directions for future work.
+
+% ── References ────────────────────────────────────────────
+\articlereferences
+
+\begin{enumerate}[label={[\arabic*]}, leftmargin=2em, itemsep=0.25em]
+  \item A.~Author, ``Title of the Paper,'' \textit{Journal Name},
+        vol.~X, no.~Y, pp.~1--10, 2025.
+  \item B.~Author, \textit{Title of the Book}, Publisher, 2025.
+\end{enumerate}

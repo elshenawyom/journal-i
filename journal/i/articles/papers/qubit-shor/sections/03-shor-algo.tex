@@ -1,0 +1,334 @@
+\section{Literally, Shor’s algorithm.}
+Let’s first state clearly the goal of the algorithm:
+ \textbf{Given a semiprime number$ N$, find the two prime numbers $P1$ and $P2$ such that: $P1 \times P2 = N$.}\nl
+The classical way to find these numbers is just by guessing randomly, also known as the brute force method. The essence or the main idea of Shor’s algorithm will be that, given a random guess g, transform this bad guess into a better guess.
+
+\subsection{Initialization.}
+We start by guessing randomly a number $g$ such that $1 < g < N$. This lead to two cases:
+\subsubsection{We are lucky.}
+$g$ is a factor of $N$, or shares common factors with $N$. In this case, we are done thanks to Euclid’s algorithm.
+\begin{definitionbox}
+    \textbf{Euclid’s Algorithm} is a classical method for efficiently computing the \textbf{greatest common divisor ($GCD$)} of two integers. It works by repeatedly replacing the larger number with its remainder when divided by the smaller, until the remainder is zero. The last non-zero remainder is the $GCD$. 
+\end{definitionbox}
+
+%%\newpage
+%\textbf{Euclid’s Algorithm} is a classical method for efficiently computing the \textbf{greatest common divisor ($GCD$)} of two integers. It works by repeatedly replacing the larger number with its remainder when divided by the smaller, until the remainder is zero. Let's see how it works.
+ 
+%\begin{definitionbox} Let $a, b$ be two natural numbers. Then, there exist natural numbers $s, t$ such that
+%$$a = s \cdot b + t$$    
+%\end{definitionbox}
+
+%So, if we have a pair of numbers $x, y,$ we apply the algorithm:
+
+%\begin{center}
+ %   algorithm
+%\end{center}
+
+%\newpage
+\begin{notebox}
+    Using that, to find a factor of $N$, we don’t need then to guess a factor, just to find a number that shares factors with $ N$.
+\end{notebox}
+
+After finding one of the prime numbers, let’s assume $P1$, compute $N/P1$ and this will give you $P2$.
+
+\subsubsection{Most probably, we won’t be lucky.}
+And this will make us start our process of making our bad a guess a better guess. To achieve that, we will borrow a quite helpful theorem.
+\begin{theorembox}
+    For any two whole numbers $A$ and $B$ that are coprime, there exists a power $r$ and a multiple $m$ such that:$$A^r = m \cdot B + 1$$
+    Equivalently: $$A^r \equiv 1\pmod B$$
+\end{theorembox}
+
+A good example to visualize it will be $A = 2$ and $P = 5$, we find that $r = 1$:
+$$
+2^1 \equiv 2 \pmod{5} \qquad
+2^2 \equiv 4 \pmod{5} \qquad
+2^3 \equiv 3 \pmod{5} \qquad
+2^4 \equiv 1 \pmod{5}
+$$
+
+In our case, our $A$ is our bad guess $g$, and $B$ is our semiprime number $N$ that we want to factor, and ultimately, we know the existence of our $r$.
+
+\subsection{Making the bad guess a better guess.}
+
+Let’s assume that we found r, such that $g^r \equiv 1 \pmod{N}$. Bring 1 to the left and you get:
+$$
+g^r - 1 \equiv 0\pmod{N}
+$$
+
+And using our famous identity: $(a + b)(a - b) = a^2 - b^2$:
+
+Replace a by g, and b by 1, and going from the right side of the equality to the left, we get:
+$$
+\underbrace{(g^{r/2} - 1)}_{\text{P1'}} \cdot \underbrace{(g^{r/2} + 1)}_{\text{P2'}} \equiv 0\pmod{N}
+$$
+
+Notice that r has to be even, otherwise, r/2 won’t be a whole number. If we found an r odd, we repeat our algorithm from the beginning.\nl
+What we found now is actually really close to what we want, instead of finding the two numbers P1 and P2 such that $P1 \times P2 = N$, we found that N divides the product of two other numbers P1’ and P2’. Which can be written as:
+$$
+P1' \times P2' = mN \quad , m \in \mathbb{N}
+$$
+
+Even more precisely, we found two numbers P1’ and P2’ that share factors with N. Thus:
+$$
+\gcd(\text{P1'}, N) = \text{P1 or P2. (We can replace P1’ by P2', the outcome stays the same).}
+$$
+And remember that thanks to our beautiful Euclide’s algorithm, we are able to compute $$\gcd(\text{P1'}, N) = P1$$easily. Compute then $\dfrac{N}{\text{P1}} = \text{P2}$, (and vice versa if we got that $\gcd(\text{P1'}, \text{N}) = \text{P2}$). And we have successfully found our P1 and P2.\nl
+\textit{End of our algorithm.}\nl
+Or maybe not?
+
+
+You may feel that this is too easy, in the sense where, using this algorithm we could directly break the RSA, why are we using it? Remember also that I gave you an introduction about quantum computing, but I didn’t talk at all about it at any point.\nl
+Let’s recall the algorithm’s main steps.
+
+\begin{tcolorbox}
+1 – Make a guess, $g < N$ that shares no factors with $N$.\\[0.5em]
+2 – Find $r$ such that $g^r = mN + 1$.\\[0.5em]
+3 – If $r$ is even, calculate $(g^{r/2} + 1)$ and $(g^{r/2} - 1)$. If $r$ is odd, go back to step 1.\\[0.5em]
+4 – Use Euclid’s algorithm to find the greatest common divisor.
+\end{tcolorbox}
+Where is the \textbf{quantum} here?
+
+\subsection{The quantum subroutine of Shor’s algorithm.}
+
+Notice that we didn’t discuss before how we are finding r, which is in fact that hardest (probably due to the quantum concepts) part of the whole algorithm.
+\begin{notebox}
+    Through this part, the quantum part of the explanation (which is still the main thing) is going to be a bit simplified, essentially when we come to some deep notions such as Quantum Fourier Transform, etc. Such quantum concepts as said before need even their own whole article. And as again mentioned before, one of the primary goals of the article is to keep the reader on board.
+There will be some analogies, to the classical architecture of a computer, for the sake of your understanding, please go back to section 0 and give a quick overview to the preliminaries again.
+
+\end{notebox}
+
+\subsubsection{Initialization.}
+To achieve this quantum subroutine, we will need two quantum registers, as normal registers that we have in normal computers, these ones are just going to contain qubits instead of normal bits.
+
+First register: is going to be 2n qubits, initialized as:
+\[
+\ket{0}^{\otimes 2n}
+\]
+The number \( n \) just determines how accurate we want our calculations to be, however, the 2nd register size depends on the first one.\nl
+Second register is going to be n qubits, initialized to: $\ket1$ 
+
+Note that \( \otimes \) in context of quantum computing doesn’t mean the XOR gate as a lot of people would think. It is a tensor product. Just consider it as a normal multiplication but between the quantum states.\nl
+Note also that for the first register, we mean that all the bits are set to 0, meaning that the state of that register is: \( \ket{000\ldots000} \).\nl
+But for the second register, we mean that the value of that register is one, meaning that the state of that register is: \( \ket{000\ldots001} \). It is just a story of notations.
+
+%%\newpage
+
+%%\subsubsection{Hadamard Transform.}
+%%Let’s first define how the Hadamard Transform works. The Hadamard gate is formally defined as follows.
+
+%%%%\begin{definitionbox} The matrix
+   % $$
+%H = \frac{1}{\sqrt{2}} 
+%\begin{bmatrix}
+%1 & 1 \\
+%1 & -1
+%\end{bmatrix}
+ %   $$
+%is denoted by the Hadamard Transform.
+%\end{definitionbox}%%%%
+
+
+What does it do? Applying the Hadamard Transform to a $\ket{1}$ or $\ket{0}$ gives this:
+
+\begin{example} Applying this to $0\rangle$ and $1 \rangle$ gives     
+\begin{align*}
+H\ket{0} = \frac{1}{\sqrt{2}}(\ket{0} + \ket{1})\\
+H\ket{1} = \frac{1}{\sqrt{2}}(\ket{0} - \ket{1})
+\end{align*}
+\end{example}
+
+
+% \newpage
+
+\subsubsection{Hadamard Transform.}
+Let’s first define how the Hadamard Transform works. The Hadamard gate is formally defined as this:
+$$
+H = \frac{1}{\sqrt{2}} 
+\begin{bmatrix}
+1 & 1 \\
+1 & -1
+\end{bmatrix}
+$$
+
+What does it do? Applying the Hadamard Transform to a $\ket{1}$ or $\ket{0}$ gives this:
+\begin{align*}
+H\ket{0} = \frac{1}{\sqrt{2}}(\ket{0} + \ket{1})\\
+H\ket{1} = \frac{1}{\sqrt{2}}(\ket{0} - \ket{1})
+\end{align*}
+
+During this part, we will be interested essentially in its application on the 0 state, since our first register is just full of 0’s.
+
+Notice that on 0, it created exactly a state such that the probability of getting one of the states $x$ such that $x$ in $\{0, (2^1 - 1)\}$ (converting the decimal to binary) is exactly equal.
+
+Let’s try to apply it to 0 states with 2 qubits.
+
+$$
+H^{\otimes 2} \ket{00} = \frac{1}{2}(\ket{00} + \ket{01} + \ket{10} + \ket{11})
+$$
+
+And on 3 qubits?
+
+$$
+H^{\otimes 3} \ket{000} = \frac{1}{\sqrt{8}} (\ket{000} + \ket{001} + \ket{010} + \ket{011} + \ket{100} + \ket{101} + \ket{110} + \ket{111})
+$$
+Did you notice the pattern? If not let me show it to you:
+
+Whenever we apply the H gate to a register of size $n$, such that all its qubits are $0$, we get a state such that the probability of measuring a state in $\{0, 1, 2, \ldots, 2^n - 1\}$ is exactly equal for all of them.
+
+You may wonder now why we are doing that, we will see why soon.
+
+To end this part, we will formally say that the state of our first register now is:
+
+$$
+\frac{1}{\sqrt{2^n}} \sum_{x=0}^{2^n - 1} \ket{x}
+$$
+\subsubsection{$U$.}
+We will apply another transformation, but to the 2nd register. Let’s call this transformation $U$. $U$’s definition is part of the algorithm, meaning that it is not a famous transformation created from before. Formally, the definition of $U$ is:
+$$
+U\ket{k} = \ket{g \cdot k \bmod N}
+$$
+
+With $g$ the random guess that we picked before.
+
+Even more formally:
+
+$$
+U\ket{k} =
+\begin{cases}
+\ket{k} & \text{if } 0 \leq k < N \\
+\ket{g \cdot k \bmod N} & \text{if } N \leq k < 2^n
+\end{cases}
+$$
+One good property of $U$ is that $U$ is a unitary transformation: which means that if you take the transpose then the complex conjugate of its matrix representation, it gives you $U$ back.
+
+
+
+How are we going to use $U$? First let’s look at our state now.
+
+
+
+The quantum state of our full system (including the $1^\text{st}$ and the $2^\text{nd}$ register) is the tensor product $\otimes$ of both first and second register. As I said $\otimes$ is just a normal multiplication of the states. Our first register is now a sum of equal states, and our second register is still just in a 1 state. “Expanding” the expression:
+
+\[
+\left( \frac{1}{\sqrt{2^n}} \sum_{x=0}^{2^n - 1} \ket{x} \right) \otimes \ket{1}
+\]
+
+gives:
+
+\[
+\frac{1}{\sqrt{2^n}} \sum_{x=0}^{2^n - 1} \left( \ket{x} \otimes \ket{1} \right)
+\]
+
+Don’t overthink about it, it is the exact same way as you would expand $(a + b + c)d = ad + bd + cd $.
+For each x (the values in each state from 0 to $2^n - 1$), we apply the transformation x times on the qubit at state 1 associated to it. It is a bit hard to understand it like that, we can use a visualization to understand it more:
+
+For each pair $\ket{x} \otimes \ket{1}$, we apply U getting:
+$$
+\ket{x} \otimes \ket{1} \longrightarrow \ket{x} \otimes U^x \ket{1} = \ket{x} \otimes \ket{g^x \bmod N}
+$$
+
+As an example, applying U to a state $\ket{101} \otimes \ket{1}$ (101 read as $4 + 0 + 1 = 5$, recall the preliminaries) gives: 
+$$
+\ket{101} \otimes U^5 \ket{1} = \ket{101} \otimes \ket{g^5 \bmod N}
+$$
+And again, g is our random guess that we picked before.
+
+Notice that when applying the transformation, we will get a certain periodicity in our quantum system due to modulo properties. To visualize it even better, let us consider that our x is going from 0 to 7 (using thus 3 qubits), that our N was 26, and our random guess was 3, after applying all what we had before, we will get:
+$$
+\frac{1}{\sqrt{8}} (\ket{000} \ket{3^0 \bmod 26} + \ket{001} \ket{3^1 \bmod 26} + \ket{010} \ket{3^2 \bmod 26} +
+$$
+$$
+\ket{011} \ket{3^3 \bmod 26} + \ket{100} \ket{3^4 \bmod 26} + \ket{101} \ket{3^5 \bmod 26} +
+$$
+$$
+\ket{110} \ket{3^6 \bmod 26} + \ket{111} \ket{3^7 \bmod 26})
+$$
+
+Which exactly gives:
+$$
+\frac{1}{\sqrt{8}} (\ket{000} \ket{1 \bmod 26} + \ket{001} \ket{3 \bmod 26} + \ket{010} \ket{9 \bmod 26} +
+$$
+$$
+\ket{011} \ket{1 \bmod 26} + \ket{100} \ket{3 \bmod 26} + \ket{101} \ket{9 \bmod 26} +
+$$
+$$
+\ket{110} \ket{1 \bmod 26} + \ket{111} \ket{3 \bmod 26})
+$$
+
+\begin{notebox}
+    $\ket{x}\otimes\ket{y}$ is the same as $\ket{x}\ket{y}$
+\end{notebox}
+Notice also that, the period of the periodicity is 3, which is exactly the number $r$ that we are searching for, $3^3 \equiv 1 \pmod{26}$.
+
+Thus, if we are able to extract the periodicity from the state, we would be done.
+ \subsubsection{The periodicity, aka r.}
+
+ This is actually a way harder task than expected. When you see the representation of the state in front of you it seems obvious, however, as we said before, if we just measure now our state it is just going to give us a random state since they all have equal probability. Which is not what we want. In fact, we are not able to extract the periodicity. However, we have something called the QFT (for \textbf{Q}uantum \textbf{F}ourier \textbf{T}ransform).
+
+ The QFT is formally defined as:
+$$
+\text{QFT} \ket{x} = \frac{1}{\sqrt{N}} \sum_{k=0}^{N-1} e^{\frac{2\pi i x k}{N}} \ket{k}
+$$
+
+Where N is the number of qubits that represent x.
+
+The QFT doesn’t extract periodicity, however, it is able to extract the frequency. And remember that
+$$
+\text{Period} = \left( \frac{1}{\text{frequency}} \right)
+$$
+
+Without entering too much into the details, believe me, the QFT would need a whole article for itself, briefly: The QFT in Shor's algorithm transforms the hidden period r of $g^x \bmod N$ into measurable frequency information, allowing us to extract r from a single quantum measurement.
+
+Basically, the amplitudes (that represent the probability of being measured) C are **peaked** near j/r, where j is just the state that we randomly measured, since a frequency function just works with adding $1/r$ each time.
+
+Thus, since the highest probability is near to j/r, we most probably are going to measure j/r.
+
+But now yes we have j/r, how do we get r? If you measure $j/r = 0.312$, how can we extract r?
+
+Luckily we already have a classical (runnable on a classical computer) algorithm that can extract r.
+\subsubsection{Continued Fraction Algorithm (CFA).}
+
+The best way to explain the Continued Fractions Algorithm is to give an example.
+
+Assume that we found that j/r = 0.312
+
+We start by writing it as a fraction:
+$$
+0 + \frac{312}{1000}
+$$
+
+We then reverse the fraction and get this:
+$$
+= 0 + \frac{1}{\frac{1000}{312}} = 0 + \frac{1}{3 + \frac{8}{39}}
+$$
+
+And we repeat the same process until we get a 1 in the numerator.
+$$
+0.312 = 0 + \frac{1}{3 + \frac{1}{4 + \frac{1}{1 + \frac{1}{7}}}}
+$$
+
+For each fraction, we get a better approximation for 0.312:
+$$
+0.312 \approx \frac{1}{3}, \quad j = 1, \quad r = 3
+$$
+$$
+0.312 \approx \frac{1}{3 + \frac{1}{4}} = \frac{4}{13}, \quad j = 4, \quad r = 13
+$$
+$$
+0.312 \approx \frac{1}{3 + \frac{1}{4 + \frac{1}{1}}} = \frac{5}{16}, \quad j = 5, \quad r = 16
+$$
+
+We choose an approximation of r such that it follows two conditions:
+\begin{tcolorbox}
+    \begin{itemize}
+  \item[1-] It should trivially be less than N
+  \item[2-] It should be an even number.
+\end{itemize}
+\end{tcolorbox}
+If none of our approximations gives a valid r, we repeat the same process from the beginning.
+
+And this gives an end to our quantum subroutine.
+
+And an official end of our Shor’s algorithm.
+
+

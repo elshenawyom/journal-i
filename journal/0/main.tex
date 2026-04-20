@@ -1,0 +1,81 @@
+% ============================================================
+%  main.tex — Constructor Mathematical Journal
+%  Volume XX · SEMESTER YYYY
+%  Constructor University Mathematics Society
+% ============================================================
+\documentclass[11pt, twoside, a4paper]{article}
+\usepackage{cmj}
+
+\begin{document}
+
+% ── Front Matter ────────────────────────────────────────────
+\pagenumbering{roman}
+\input{front/cover}
+\input{front/info}
+
+%   Table of Contents ──────────────────────────────────────
+\clearpage
+\thispagestyle{frontmatter}
+\vspace*{1.5cm}
+\begin{center}
+  {\LARGE\bfseries\color{cmjcrimson}Contents}
+\end{center}
+\vspace{0.3cm}
+\noindent\textcolor{cmjgold}{\rule{\textwidth}{1.2pt}}
+\vspace{0.3cm}
+
+% Editorial entry
+\contentsentry
+  {On This Volume}
+  {XXX --- XXX'YY}
+  {art:volume}
+
+% Editorial entry
+\contentsentry
+  {Editor's Address}
+  {XXX --- XXX'YY}
+  {art:address}
+
+% Student articles heading
+\vspace{0.4cm}
+\noindent{~~~\large\bfseries\color{cmjcrimson}Student Articles}\\[-0.4cm]
+\noindent\textcolor{cmjgold}{\rule{\textwidth}{0.8pt}}\vspace{0.6cm}
+
+% Add more sections if you'd like to...
+% \vspace{0.4cm}
+% \noindent{~~~\large\bfseries\color{cmjcrimson}Another Section}\\[-0.4cm]
+% \noindent\textcolor{cmjgold}{\rule{\textwidth}{0.8pt}}\vspace{0.6cm}
+
+
+%   Table of Contents ──────────────────────────────────────
+\vspace{0.6cm}
+
+\contentsentry
+  {TITLE OF YOUR ARTICLE 1}
+  {YOUR NAME 1 --- XXX'YY}
+  {art:ARTICLE01}
+
+\contentsentry
+  {TITLE OF THE ARTICLE}
+  {AUTHOR NAME --- XXX'YY}
+  {art:LABEL}
+
+
+\vfill
+\noindent\textcolor{cmjgold}{\rule{\textwidth}{1.2pt}}
+
+% ── Articles ────────────────────────────────────────────────
+\clearpage
+\pagenumbering{arabic}
+
+% On this volume (section -1)
+\input{front/thisvolume}
+
+% From the Editors (section 0)
+\input{front/editorial}
+
+\input{articles/article-01}
+
+\input{articles/article-template}
+
+\end{document}

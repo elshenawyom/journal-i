@@ -1,0 +1,148 @@
+% ============================================================
+%  front/cover.tex — Full-page cover with TikZ artwork
+%  Three panels: Bragg diffraction | Bloch sphere | Polar codes
+% ============================================================
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture, overlay]
+
+%% ── BACKGROUND ─────────────────────────────────────────────
+\fill[white] (current page.south west) rectangle (current page.north east);
+
+%% ── TOP MASTHEAD BAND (6 cm) ────────────────────────────────
+\fill[cmjcrimson]
+  (current page.north west)
+  rectangle ([yshift=-6cm]current page.north east);
+
+% Gold accent rule at bottom of band
+\fill[cmjgold]
+  ([yshift=-5.8cm]current page.north west)
+  rectangle ([yshift=-6.0cm]current page.north east);
+
+% Journal title (stacked)
+\node[white, font=\fontsize{26}{30}\selectfont\bfseries, anchor=center]
+  at ([yshift=-2.0cm]current page.north)
+  {THE CONSTRUCTOR};
+\node[cmjgold, font=\fontsize{26}{30}\selectfont\bfseries, anchor=center]
+  at ([yshift=-3.4cm]current page.north)
+  {MATHEMATICAL JOURNAL};
+
+% Volume / date line
+\node[white, font=\fontsize{14}{18}\selectfont\bfseries, anchor=center]
+  at ([yshift=-4.8cm]current page.north)
+  {Inaugural Edition \quad\textbullet\quad Volume I \quad\textbullet\quad Spring 2025};
+
+%% ── THREE-PANEL ARTWORK % ─────────────────────────────────────
+\def\drawingScale{1.3}
+
+%% LEFT PANEL: Crystal lattice + Bragg diffraction
+\begin{scope}[shift={([xshift=-5cm,yshift=-19.75cm]current page.north)}, scale=\drawingScale]
+  % Horizontal lattice planes
+  \foreach \y in {-1.8,-0.9,0,0.9,1.6}
+    \draw[cmjcrimson!20, line width=0.4pt, dashed] (-2.2,\y) -- (2.2,\y);
+  % Lattice atoms
+  \foreach \x in {-1.5,-0.75,0,0.75,1.5}
+    \foreach \y in {-1.8,-0.9,0,0.9,1.8}
+      \fill[cmjcrimson!55] (\x,\y) circle (1.6pt);
+  % Incoming X-ray
+  \draw[-{Stealth[length=5pt]}, cmjgold, line width=1.4pt]
+    (-2.2, 2.4) -- (0, 0.9);
+  % Reflected X-ray
+  \draw[-{Stealth[length=5pt]}, cmjgold, line width=1.4pt]
+    (0, 0.9) -- (2.2, 2.4);
+  % d-spacing bracket
+  \draw[{Stealth[length=3pt]}-{Stealth[length=3pt]}, cmjcrimson!60, thin]
+    (-2.05,0) -- (-2.05,0.9)
+    node[midway, left, font=\tiny, cmjcrimson!80]{$d$};
+  % theta arc
+  \draw[cmjgold!70, thin] (0.35,0.9) arc(0:37:0.35)
+    node[above right, font=\tiny, cmjgold!90]{$\theta$};
+  % Bragg formula + label
+  \node[cmjcrimson, font=\small\bfseries] at (0,-2.7) {$2d\sin\theta = n\lambda$};
+  \node[cmjcrimson!65, font=\scriptsize\itshape] at (0,-3.35) {Bragg's Law};
+\end{scope}
+
+%% CENTRE PANEL: Bloch sphere
+\begin{scope}[shift={([yshift=-19.75cm, xshift=3.25cm]current page.north)}, scale=\drawingScale]
+  \shade[ball color=cmjcrimson!12!white, opacity=0.55] (0,0) circle (2.43);
+  \draw[cmjcrimson!60, thick] (0,0) circle (2.4cm);
+  \draw[cmjcrimson!40, dashed, thick] (0,0) ellipse (2.4cm and 0.65cm);
+  % z axis
+  \draw[-{Stealth[length=5pt]}, cmjcrimson!70, thick]
+    (0,0) -- (0, 2.7) node[above, font=\normalsize]{$\ket{0}$};
+  \draw[-{Stealth[length=5pt]}, cmjcrimson!70, thick]
+    (0,0) -- (0,-2.7) node[below, font=\normalsize]{$\ket{1}$};
+  % x axis
+  \draw[-{Stealth[length=5pt]}, cmjcrimson!60, thick]
+    (0,0) -- (2.7,0) node[right, font=\normalsize]{$\ket{+}$};
+  % State vector |psi>
+  \draw[-{Stealth[length=6pt]}, cmjgold, very thick, line width=1.8pt]
+    (0,0) -- (1.45,1.9)
+    node[above right, font=\large\bfseries, cmjgold]{$\ket{\psi}$};
+  \fill[cmjgold] (1.45,1.9) circle (2.5pt);
+  \node[cmjcrimson!65, font=\scriptsize\itshape] at (0,-3.7) {Bloch Sphere};
+\end{scope}
+
+%% RIGHT PANEL: Channel polarization tree
+\def\dUP{0.35}
+\begin{scope}[shift={([xshift=5.75cm,yshift=-10.5cm]current page.north)}, scale=\drawingScale+0.2]
+  % Root
+  \node[cmjcrimson, font=\normalsize\bfseries] (r) at (0,2+\dUP) {$W$};
+  % Level 1
+  \node[cmjcrimson!80, font=\small] (am) at (-1.5,0.8+\dUP) {$W^-$};
+  \node[cmjcrimson!80, font=\small] (ap) at ( 1.5,0.8+\dUP) {$W^+$};
+  \draw[cmjcrimson!60, thick] (r)--(am) (r)--(ap);
+  % Level 2
+  \node[cmjcrimson!60, font=\scriptsize] (mm) at (-2.25,-0.5+\dUP) {$W^{--}$};
+  \node[cmjcrimson!60, font=\scriptsize] (mp) at (-0.75,-0.5+\dUP) {$W^{-+}$};
+  \node[cmjcrimson!60, font=\scriptsize] (pm) at ( 0.75,-0.5+\dUP) {$W^{+-}$};
+  \node[cmjcrimson!60, font=\scriptsize] (pp) at ( 2.25,-0.5+\dUP) {$W^{++}$};
+  \draw[cmjcrimson!40] (am)--(mm) (am)--(mp) (ap)--(pm) (ap)--(pp);
+  % Frozen / active labels
+  \node[cmjcrimson!40, font=\small\bfseries] at (-2.25,-2.25) {frozen};
+  \node[cmjgold,    font=\small\bfseries] at (-0.75,-2.25) {active};
+  \node[cmjgold,    font=\small\bfseries] at ( 0.75,-2.25) {active};
+  \node[cmjcrimson!40, font=\small\bfseries] at ( 2.25,-2.25) {frozen};
+  % Capacity bars
+  \fill[cmjcrimson!25, opacity=0.9] (-2.50,-2.0) rectangle (-2.00,-1.65);
+  \fill[cmjgold!80, opacity=0.9] (-1.00,-2.0) rectangle (-0.50,-0.50);
+  \fill[cmjgold,    opacity=0.9] ( 0.50,-2.0) rectangle ( 1.00,-0.38);
+  \fill[cmjcrimson!25, opacity=0.9] ( 2.00,-2.0) rectangle ( 2.50,-1.70);
+  \node[cmjcrimson!65, font=\scriptsize\itshape] at (0,-2.75) {Channel Polarization};
+\end{scope}
+
+%% ── IN THIS ISSUE (centered, larger) ───────────────────────
+\node[anchor=east, text width=13.5cm, inner sep=0pt, align=left, scale=1.125]
+  at ([yshift=3.6cm, xshift=5.75cm]current page.center) {%
+    {\huge\bfseries\color{cmjcrimson}IN THIS ISSUE}\\[0.5cm]
+    {\LARGE\bfseries\color{cmjdark}Aly Assaf\,---\,ECE'27}\\[0.15cm]
+    {\Large\itshape\color{cmjgray}Shannon's Theorem and Polar Codes}\\[0.6cm]%
+    {\LARGE\bfseries\color{cmjdark}Loredana-Maria Iacob\,---\,BCCB'27}\\[0.15cm]
+    {\Large\itshape\color{cmjgray}Bragg's Law in the Context of Protein}\\[0.1cm]
+    {\Large\itshape\color{cmjgray} Structure Determination}\\[0.6cm]
+    {\LARGE\bfseries\color{cmjdark}Ahmed Maghri\,---\,CS'27}\\[0.15cm]
+    {\Large\itshape\color{cmjgray}The Qubit and Shor's Algorithm:}\\[0.1cm]
+    {\Large\itshape\color{cmjgray}A Step-by-Step Exploration}\\[0.6cm]
+};
+
+%% ── BOTTOM BAND (3.7 cm) ────────────────────────────────────
+\fill[cmjcrimson]
+  (current page.south west)
+  rectangle ([yshift=3.7cm]current page.south east);
+
+\fill[cmjgold]
+  ([yshift=3.7cm]current page.south west)
+  rectangle ([yshift=3.9cm]current page.south east);
+
+\node[white, anchor=center]
+  at ([yshift=2.5cm]current page.south)
+  {A Student Publication of};
+
+\node[cmjgold!85!white, font=\itshape, anchor=center]
+  at ([yshift=1.9cm]current page.south)
+  {The Constructor University Mathematics Society};
+
+\node[white, anchor=center]
+  at ([yshift=1cm]current page.south)
+  {\texttt{math.constructor.university}};
+
+\end{tikzpicture}

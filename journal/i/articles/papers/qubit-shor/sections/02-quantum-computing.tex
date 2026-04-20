@@ -1,0 +1,39 @@
+\section{Introduction to the world of quantum computing.}
+\begin{notebox}
+    Our goal in this article is not to focus on quantum computing, there are multiple lectures about it, and some really advanced topics will be needed during section 3.3 to explain the implementation of Shor’s algorithm, and these concepts need their own article. If you feel a bit lost during the quantum computing parts, this is totally normal, but I am going to do my best to keep you on board.
+\end{notebox}
+
+\begin{notebox}
+    While reading this article, you may encounter some intermediary algorithms, while the article will still give a short explanation of them, again our goal won’t be to go deeply into them. If you would like to know more about them, a quick google search will serve you.
+\end{notebox}
+    
+\subsection{Theoritcal part.}
+
+Briefly: Quantum computers use quantum bits (qubits) instead of normal bits.\nl
+We all heard this, without really getting what is happening behind it. We also heard the famous sentence: While bits must be either in a 0 or 1 state, a qubit can be in a superposition of states $\ket{0}$ and $\ket{1}$. Some people also heard that when you measure a quantum state, you can’t measure the superposition, you just randomly measure one of the possible states. At measurement, you can say that the quantum states collapse into exactly one. Let’s try to discover what is really happening behind the scenes.\nl
+Formally, a quantum state (so a state “between” the $ \ket{0} $ and the $ \ket{1} $) is described by amplitudes $ \alpha $ and $ \beta $, with probability $ |\alpha|^2 $ of measuring 0, and probability $ |\beta|^2 $ of measuring 1. Thus, we have:
+$$
+|\alpha|^2 + |\beta|^2 = 1
+$$
+And we write for a state $ X $:
+$$
+\ket{X} = \alpha \ket{0} + \beta \ket{1}
+$$
+For a state with 2 qubits, instead of 1, we get $ 2^2 $ possibilities:
+$$
+\ket{X} = \alpha \ket{00} + \beta \ket{01} + \gamma \ket{10} + \delta \ket{11}
+$$
+$$
+|\alpha|^2 + |\beta|^2 + |\gamma|^2 + |\delta|^2 = 1
+$$
+As an example, consider the state $ Y $ where:
+$$
+\ket{Y} = \frac{1}{2} \ket{00} + \frac{1}{2} \ket{01} + \frac{1}{2} \ket{10} + \frac{1}{2} \ket{11}
+$$
+If we try to measure the state $ Y $, we have equally $ \frac{1}{4} $ probability of measuring either $ 00 $, $ 01 $, $ 10 $, or $ 11 $.
+\subsection{Physical part.}
+
+But how do we create such a computer? How do we create a qubit? Usually in classical computer, we used to create a bit of 0 or 1 by using the “presence “or “absence “of electricity, but we cannot do it for quantum computers, there is no “electricity a bit present or a bit absent”.\nl
+We had to find a new way to describe the 0 and the 1 state.\nl
+A widely used method to build qubits is by using the \textbf{spin of an electron}, often the electron of a phosphorus atom embedded in silicon. The two possible spin orientations — \textbf{spin-up} and \textbf{spin-down} — are used to represent the states $\ket{1}$  and $\ket{0}$ respectively. But in contrast to classical bits, the electron’s spin can also be in a superposition of both up and down at once, meaning it’s partly $\ket{0}$, partly $\ket{1}$. This is what allows the qubit to behave fundamentally differently from a classical bit and makes quantum computing possible.\nl
+Now that we have our foundations, we can now move the interesting part I would say.

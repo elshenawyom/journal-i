@@ -1,0 +1,99 @@
+%\begin{center}
+\section{Preliminaries.}
+This article has been made such that almost any person is able to understand the whole content, however, a minimum of reasoning, computer science, and mathematics concept will be required, and to ensure that the reader has these requirements, here are some definitions and concepts that we are going to use during our journey (and even some advanced definitions). The reader is not obliged to read it now, but whenever he needs to.
+%\end{center}
+\subsection*{1- Number's Theory:}
+\begin{itemize}
+    \item \textbf{Modular arithmetic:} We say \( A \equiv B \pmod{N} \), when the division of \( A \) by \( N \) gives a remainder of \( B \). Quick example: \( \frac{5}{2} \) gives a remainder of 1 \((5 = 2 \times 2 + 1)\).
+ Thus we say: \( 5 \equiv 1 \pmod{2} \). If this is still a bit unclear for you, let’s say that you take the number \( A \) and subtract \( N \) until you can’t. In our previous example:
+    \[
+    5 - 2 = 3, \quad 3 - 2 = 1
+    \]
+    The last number is the remainder.
+
+    \item \textbf{A is a divisor of B:} \( A \) is able to divide \( B \), \( A/B \) gives an integer.
+
+    \item \textbf{The gcd of A and B (gcd(A, B)):} It’s the greatest common divisor of \( A \) and \( B \). For instance: 24 and 18 have as common divisors: 1, 2, 3, 6. So \( \gcd(24, 18) = 6 \).
+
+    \item \textbf{A and B are coprime:} \( \gcd(A, B) = 1 \). Meaning that \( A \) and \( B \) have no common divisors (not counting the trivial 1, which is a divisor of all whole numbers). For example, \( \gcd(15, 8) = 1 \), so 15 and 18 are coprime.
+
+    \item \textbf{The order of A modulo N:} is the smallest number \( r \) such that \( A^r \equiv 1 \pmod{N} \).
+
+    \item \textbf{A is semiprime:} \( A \) just has two divisors (not counting 1 and \( A \) itself). For example, 15 is semiprime. Another way to see it is that \( A \) is the product of two prime numbers.
+
+
+\end{itemize}
+    \subsection*{2– Computer Science:}
+\begin{itemize}
+    \item \textbf{Polynomial time:} We say a problem can be solved in polynomial time if: Given a problem of size \( n \), the problem is solvable in a time of \( n^r \), with \( r \) a real number.
+
+    \item \textbf{P problems:} Are the problems for which we can find solutions in polynomial time.
+
+    \item \textbf{NP problems:} Problems for which we can’t find solutions in polynomial time. Also explained as problems where we can easily check if a given solution is correct, but finding that solution is very hard.
+
+    \item \textbf{An algorithm:} A set of instructions that is designed to accomplish a task.
+
+    \item \textbf{A private key:} A key that is known only by its owner.
+
+    \item \textbf{A public key:} A key that is known by everyone.
+
+    \item \textbf{Converting binary to decimal:} Let’s say \( 1101 \) is our binary number. You compute:
+    \[
+    1 \times 2^3 + 1 \times 2^2 + 0 \times 2^1 + 1 \times 2^0 = 13
+    \]    
+    This helps illustrate the pattern. If not clear, a quick Google search will explain it very well.
+
+    \item \textbf{Number of possible states:} Something we will use often: if we have \( n \) bits, then we have \( 2^n \) possible states.
+
+    \item \textbf{BQP problems:} BQP stands for Bounded-Error Quantum Polynomial Time. These are decision problems that can be solved by a quantum computer in polynomial time with a probability of at least \( \frac{2}{3} \) of being correct. The error probability is at most \( \frac{1}{3} \) for all instances.
+\end{itemize}
+
+\subsection*{3– Computer Architecture:}
+
+\begin{itemize}
+    \item \textbf{A bit:} A bit (short for binary digit) is the smallest unit of information in classical computing. It can take on one of two possible values: 0 or 1.
+
+    \item \textbf{A register:} A register is a small, fast storage location inside a computer's processor that holds data temporarily. In classical computing, it typically consists of several bits and is used for arithmetic or logical operations.
+\end{itemize}
+
+\subsection*{4– Linear Algebra:}
+
+\begin{itemize}
+    \item \textbf{\(i\):} Represents the elementary complex number, where \( i^2 = -1 \).
+
+    \item \textbf{Transpose of a matrix:} Given a matrix \( M \), its transpose is the matrix with rows and columns swapped. For example, here is a matrix and its transpose:
+    \[
+    M = \begin{bmatrix} 1 & 2 \\ 3 & 3i \end{bmatrix}, \quad
+    M^T = \begin{bmatrix} 1 & 3 \\ 2 & 3i \end{bmatrix}
+    \]
+
+    \item \textbf{Complex conjugate of a matrix:} Given a matrix \( M \) with complex entries, its complex conjugate is basically the same matrix but negating each element that has \(i\) in it:
+    \[
+    M = \begin{bmatrix} 1 & 2 \\ 3 & 3i \end{bmatrix}, \quad
+    \overline{M} = \begin{bmatrix} 1 & 2 \\ 3 & -3i \end{bmatrix}
+    \]
+\end{itemize}
+
+\subsection*{5– Quantum Computing:}
+\begin{itemize}
+    \item \textbf{Physical qubits:} Physical qubits are the actual hardware qubits built using physical systems (like trapped ions or superconducting circuits).
+
+    \item \textbf{Logical qubits:} Idealized qubits, error-corrected, essentially used in theory. Approximately 1 logical qubit \( \approx \) 10,000 physical qubits.
+
+    \item \textbf{Transformation to matrix:} Each quantum transformation can be represented as a matrix, or as its direct application on a qubit (for linear algebra adepts, you can see it as when you can represent a transformation in its matrix form or directly how it acts on the vectors).
+\end{itemize}
+
+\subsection*{6– Set’s Theory:}   
+\begin{itemize}
+    \item \textbf{\( \mathbb{N} \):} Natural numbers — counting numbers like 1, 2, 3, ...
+
+    \item \textbf{\( \mathbb{Z} \):} Integers — all whole numbers, positive and negative, including zero: \( ..., -2, -1, 0, 1, 2, ... \)
+
+    \item \textbf{\( \mathbb{Q} \):} Rational numbers — numbers that can be written as a fraction \( \frac{a}{b} \) where \( a, b \in \mathbb{Z} \) and \( b \neq 0 \)
+
+    \item \textbf{\( \mathbb{R} \):} Real numbers — all rational and irrational numbers (e.g., \( \pi \), \( \sqrt{2} \))
+
+    \item \textbf{\( \mathbb{C} \):} Complex numbers — numbers of the form \( a + bi \), where \( a, b \in \mathbb{R} \) and \( i^2 = -1 \)
+\end{itemize}
+% \newpage
+

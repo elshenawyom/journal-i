@@ -1,0 +1,48 @@
+% ============================================================
+%  article.tex  —  TEMPLATE for a new journal article
+%
+%  To add a new article to the journal:
+%    1.  Copy the entire  template/article/  directory into
+%        articles/papers/, renaming it to your article's slug
+%        (e.g. articles/papers/my-topic/).
+%    2.  Create a wrapper file in articles/ (e.g. articles/04-mytopic.tex)
+%        and \input{} your section files from there.
+%    3.  Fill in the \articleheader fields below.
+%    4.  In main.tex add:  \input{articles/04-mytopic}
+%    5.  Add a \contentsentry in the Table‑of‑Contents block of main.tex.
+%    6.  If you have images, add your assets path to \graphicspath in cmj.sty.
+% ============================================================
+
+\label{art:ARTICLE01}
+
+\articleheader
+  {TITLE OF YOUR ARTICLE}
+  {YOUR NAME}
+  {Your Department, Class of 20XX\\Constructor University Bremen}
+  {ABSTRACT --- A concise summary of the article's contributions,
+   methodology, and key results.}
+
+% ── Optional: Acknowledgements ────────────────────────────
+% \vspace{0.3cm}
+% \noindent{\small\textbf{\color{cmjcrimson}Acknowledgements.}\ %
+% Thank collaborators, advisors, etc.}
+% \vspace{0.6cm}
+
+% ── Article body ──────────────────────────────────────────
+% Option A: write sections directly here.
+% Option B: split into files and \input{} them (shown below).
+
+\input{articles/papers/paper-01/sections/section-1}
+\input{articles/papers/paper-01/sections/section-2}
+
+\section{Conclusion}
+
+Summary and future work.
+
+% ── References ────────────────────────────────────────────
+\articlereferences
+
+\begin{enumerate}[label={[\arabic*]}, leftmargin=2em, itemsep=0.25em]
+  \item A.~Author, ``Title,'' \textit{Journal}, vol.~X, pp.~1--10, 2025.
+  \item B.~Author, \textit{Book Title}, Publisher, 2025.
+\end{enumerate}
